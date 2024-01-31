@@ -1,6 +1,12 @@
 ---
 layout: post
 title: Abstract
+subtitle: Excerpt from Soulshaping by Jeff Brown
+cover-img: /assets/img/path.jpg
+thumbnail-img: /assets/img/thumb.png
+share-img: /assets/img/path.jpg
+tags: [books, test]
+author: Sharon Smith and Barry Simpson
 ---
 
 We introduce Uni-SMART (Universal Science Multimodal Analysis and Research Transformer), a pioneering scientific multimodal model by DP Technology, aimed at revolutionizing the efficiency of scientific document analysis. 
