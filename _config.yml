@@ -10,22 +10,19 @@
 ############################
 
 # Name of website
-title: My website
+title: Uni-SMART
 
 # Your name to show in the footer
-author: Some Person
+author: DP
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
-
+  arXiv: "https://arxiv.org/abs/2303.08774"
+  Uni-Finder: "https://uni-finder.dp.tech/"
+  
 ################
 # --- Logo --- #
 ################
