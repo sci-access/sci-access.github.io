@@ -1,18 +1,41 @@
 ---
-layout: post
-title: Flake it till you make it
-subtitle: Excerpt from Soulshaping by Jeff Brown
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
-tags: [books, test]
-author: Sharon Smith and Barry Simpson
+layout: page
+title: Introduction
+thumbnail-img: /assets/img/Uni-SMART-framework.png
 ---
 
-Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?
+## Introduction
 
-The truth is that no one else can definitively know the path we are here to walk. It’s tempting to listen—many of us long for the omnipotent other—but unless they are genuine psychic intuitives, they can’t know. All others can know is their own truth, and if they’ve actually done the work to excavate it, they will have the good sense to know that they cannot genuinely know anyone else’s. Only soul knows the path it is here to walk. Since you are the only one living in your temple, only you can know its scriptures and interpretive structure.
+**Background.**
+Scientific literature, encompassing patents and academic papers, is a treasure trove of valuable data, including but not limited to drug properties and activities, reaction pathways, manufacturing processes, and omics relationships. 
+The extraction of this data, however, is notoriously labor-intensive and time-consuming. 
+It requires meticulous manual reading, analysis, and extraction, processes that are not only slow but also prone to human error.
+Existing non-heuristic databases such as Sci-Finder and Reaxys rely heavily on human experts to perform these extractions. 
+While they are effective in supporting certain types of data retrieval, such as chemical reactions, they lack the capacity for automatic extraction from newly published documents. 
+This limitation poses a significant bottleneck in the timely utilization of scientific data, impeding research progress and the rapid application of new discoveries.
+Thus, researchers and practitioners are in need of an intelligent navigator that can swiftly guide through the complexities of latest scientific data, identify relevant information with precision, and present it in a digestible format.
 
-At the heart of the struggle are two very different ideas of success—survival-driven and soul-driven. For survivalists, success is security, pragmatism, power over others. Success is the absence of material suffering, the nourishing of the soul be damned. It is an odd and ironic thing that most of the material power in our world often resides in the hands of younger souls. Still working in the egoic and material realms, they love the sensations of power and focus most of their energy on accumulation. Older souls tend not to be as materially driven. They have already played the worldly game in previous lives and they search for more subtle shades of meaning in this one—authentication rather than accumulation. They are often ignored by the culture at large, although they really are the truest warriors.
+**Advent of LLMs.**
+The advent of large language models (LLMs) such as ChatGPT has heralded a new era of natural language processing, demonstrating remarkable proficiency in a myriad of natural language tasks. 
+There has been a proliferation of literature assistance tools based on such models, like ChatPDF, which facilitate the extraction of text from PDF documents and engage in natural language question-answering. 
+However, these tools are tailored predominantly for text extraction, and while they excel in processing and generating human-like text, they falter when confronted with the multimodal nature of scientific literature.
+Scientific documents are replete with multimodal information that extends beyond text, including but not limited to statistical tables, molecule graphs, and chemical reactions. 
+The extraction and interpretation of such multimodal data require an understanding that transcends textual information and delves into the realm of visual and structural data representation. 
 
-A soulful notion of success rests on the actualization of our innate image. Success is simply the completion of a soul step, however unsightly it may be. We have finished what we started when the lesson is learned. What a fear-based culture calls a wonderful opportunity may be fruitless and misguided for the soul. Staying in a passionless relationship may satisfy our need for comfort, but it may stifle the soul. Becoming a famous lawyer is only worthwhile if the soul demands it. It is an essential failure if you are called to be a monastic this time around. If you need to explore and abandon ten careers in order to stretch your soul toward its innate image, then so be it. Flake it till you make it.
+**Briefs of Uni-SMART.**
+To address these challenges, we have developed Uni-SMART (Universal Science Multimodal Analysis and Research Transformer), which extends the capabilities of LLMs beyond text, allowing for the interpretation of the rich visual and structural information that is paramount in scientific documentation. 
+[Add some details about multi-modal abilities if possible.]
+This innovative approach not only augments the automated and precise data extraction process but also enriches the interaction between researchers and the vast expanse of scientific knowledge, paving the way for a more holistic and efficient research methodology.
+
+**Evaluation of Uni-SMART.**
+To rigorously assess the multimodal capabilities of Uni-SMART, a comparative analysis was conducted against existing heuristic literature analysis tools, which are mostly based on LLMs.
+The tools included for comparison were ChatPDF, Claude, and GPT-4. 
+Our evaluation focused on extensive functionalities crucial for scientific research: table information extraction, molecular formula recognition, Markush structure recognition, synonyms/IUPAC understanding, chart understanding, reaction equation recognition, multimodal understanding, multimodal reasoning, text understanding, and textual reasoning.
+[Add summary of evaluation results.]
+
+**Outlines of this report.**
+In the following sections, we first provide an overview of the model architecture.
+We then present detailed evaluations of the Uni-SMART.
+[Briefs for more chapters if possible.]
+
+![Uni-SMART-framework](/assets/img/Uni-SMART-framework.png)
