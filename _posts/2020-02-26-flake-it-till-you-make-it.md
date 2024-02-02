@@ -4,6 +4,8 @@ title: Introduction
 thumbnail-img: /assets/img/Uni-SMART-framework.png
 ---
 
+The introduction section of the report provides an overview of the model architecture and the evaluation of the Uni-SMART.
+
 ## Introduction
 
 **Background.**
