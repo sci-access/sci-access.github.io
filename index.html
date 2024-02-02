@@ -4,42 +4,5 @@ title: Uni-SMART
 subtitle: Universal Science Multimodal Analysis and Research Transformer
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uni-SMART</title>
-    <!-- 引入marked库 -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
-<body>
-    <img src="assets/img/Uni-SMART-framework.png" alt="Descriptive Alt Text" style="width:100%;">
+<img src="assets/img/Uni-SMART-framework.png" alt="Descriptive Alt Text" style="width:100%;">
 
-    <!-- Markdown内容的容器 -->
-    <div id="markdown-content"></div>
-
-    <!-- Markdown内容 -->
-    <script type="text/markdown" id="markdown">
-    # Page Title
-
-    ## sub title
-
-    ![Image](assets/img/Uni-SMART-framework.png)
-    Here is some content from `page.md`:
-
-    - List item 1
-    - List item 2
-
-    Replace this script content with your actual markdown content from `page.md`.
-    </script>
-
-    <!-- 使用JavaScript转换并显示Markdown -->
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const markdownText = document.getElementById('markdown').innerText;
-            const htmlContent = marked.parse(markdownText);
-            document.getElementById('markdown-content').innerHTML = htmlContent;
-        });
-    </script>
-</body>
-</html>
