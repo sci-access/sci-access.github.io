@@ -22,7 +22,7 @@ title: Sci-Access
 navbar-links:
   arXiv: "https://arxiv.org/abs/2303.08774"
   # TODO arxiv链接替换
-  Uni-Finder: "https://uni-finder.dp.tech/"
+  # Uni-Finder: "https://uni-finder.dp.tech/"
 
 ################
 # --- Logo --- #
