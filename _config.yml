@@ -22,7 +22,7 @@ title: Sci-Assess
 navbar-links:
   arXiv: "https://arxiv.org/abs/2303.08774"
   # TODO github链接替换
-  GitHub: "https://github.com/sci-assess/sci-assess.github.io"
+  GitHub: "https://sci-assess.github.io/"
 
 ################
 # --- Logo --- #
@@ -99,7 +99,7 @@ share-links-active:
 # Remove this if you don't want a link in the footer
 
 # TODO github链接替换
-url-pretty: "https://github.com/sci-assess/sci-assess.github.io"
+url-pretty: "https://sci-assess.github.io/"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
