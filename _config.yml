@@ -21,8 +21,8 @@ title: Sci-Assess
 
 navbar-links:
   arXiv: "https://arxiv.org/abs/2303.08774"
-  # TODO arxiv链接替换
-  # Uni-Finder: "https://uni-finder.dp.tech/"
+  # TODO github链接替换
+  GitHub: "https://github.com/sci-assess/sci-assess.github.io"
 
 ################
 # --- Logo --- #
@@ -97,7 +97,9 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "https://uni-finder.dp.tech"
+
+# TODO github链接替换
+url-pretty: "https://github.com/sci-assess/sci-assess.github.io"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
