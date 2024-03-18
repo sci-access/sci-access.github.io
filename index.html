@@ -4,8 +4,6 @@ title: Sci-Assess
 subtitle: SciAssess: Benchmarking LLM Proficiency in Scientific Literature Analysis
 ---
 
-<!-- <img src="assets/img/Uni-SMART-framework.png" alt="Descriptive Alt Text" style="width:100%;"> -->
-
 <body>
     <section class="section">
     <div class="container is-max-desktop">
@@ -15,24 +13,42 @@ subtitle: SciAssess: Benchmarking LLM Proficiency in Scientific Literature Analy
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Recent breakthroughs in Large Language Models (LLMs) have revolutionized natural language understanding and generation, igniting a surge of interest in leveraging these technologies for the nuanced field of scientific literature analysis. 
+              Recent breakthroughs in Large Language Models (LLMs) have revolutionized natural language understanding and generation, igniting a surge of interest in leveraging these technologies for the nuanced field of scientific literature analysis.
               Existing benchmarks, however, inadequately evaluate the proficiency of LLMs in the scientific domain, especially in scenarios involving complex comprehension and multimodal data.
               In response, we introduced SciAssess, a benchmark tailored for the in-depth analysis of scientific literature, crafted to provide a thorough assessment of LLMs' efficacy.
-              SciAssess focuses on evaluating LLMs' abilities in memorization, comprehension, and analysis within scientific contexts. 
-              It includes representative tasks from diverse scientific fields, such as general chemistry, organic materials, and alloy materials. 
-              And rigorous quality control measures ensure its reliability in terms of correctness, anonymization, and copyright compliance. 
-              SciAssess evaluates leading LLMs, including GPT-4, GPT-3.5-turbo, and Gemini, identifying their strengths and areas for improvement and supporting the ongoing development of LLM applications in scientific literature analysis. 
+              SciAssess focuses on evaluating LLMs' abilities in memorization, comprehension, and analysis within scientific contexts.
+              It includes representative tasks from diverse scientific fields, such as general chemistry, organic materials, and alloy materials.
+              And rigorous quality control measures ensure its reliability in terms of correctness, anonymization, and copyright compliance.
+              SciAssess evaluates leading LLMs, including GPT-4, GPT-3.5-turbo, and Gemini, identifying their strengths and areas for improvement and supporting the ongoing development of LLM applications in scientific literature analysis.
               SciAssess and its resources are made available at <a href="https://sci-assess.github.io/">https://sci-assess.github.io/</a>, offering a valuable tool for advancing LLM capabilities in scientific literature analysis.
             </p>
           </div>
-          <h2 class="title is-3">Code</h2>
+          <h2 class="title is-3">Benchmark Details</h2>
           <div class="content has-text-justified">
-            <p>
-              Our code, essential for replicating the studies and experiments outlined in SciAssess, is currently in the final stages of preparation. It will soon be made publicly available, allowing researchers and developers alike to contribute to and benefit from the advancements in LLMs for scientific literature analysis. Stay tuned for updates.
-            </p>
+            <p>SciAssess evaluates LLMs' abilities in various aspects:</p>
+            <ul>
+              <li><strong>L1 (Memorization)</strong>: The model's ability to accurately answer common factual questions in science autonomously.</li>
+              <li><strong>L2 (Comprehension)</strong>: The ability to precisely identify and extract key information and facts within a given text.</li>
+              <li><strong>L3 (Analysis and Reasoning)</strong>: The model's capability to amalgamate extracted information with its existing knowledge base for logical reasoning and analysis.</li>
+            </ul>
+            <p>It covers a wide range of scientific fields and tasks, including but not limited to:</p>
+            <ul>
+              <li>General Chemistry: MMLU High-School Chemistry, Abstract2Title, Balancing Equations</li>
+              <li>Alloy Materials: Composition Extraction, Alloy ChartQA, Sample Differentiation</li>
+              <li>Organic Materials: Electrolyte Solubility Data Extraction, Reaction Mechanism QA, Polymer Property Extraction</li>
+              <li>Drug Discovery: Affinity Data Extraction, Tag to Molecule, Drug ChartQA</li>
+              <li>Biology: MedMCQA, CompDisease Recognition, Biology ChartQA</li>
+            </ul>
+            <p>For a complete list of domains and tasks, please refer to our <a href="https://arxiv.org/abs/2403.01976">paper</a>.</p>
           </div>
-        </div>
-      </div>
-    </div>
-    </section>
-</body>
+          <h2 class="title is-3">Contributing</h2>
+          <div class="content has-text-justified">
+            <p>We welcome contributions to the SciAssess benchmark. If you have any suggestions or improvements, please feel free to <a href="https://github.com/sci-assess/SciAssess/issues">open an issue</a> or create a pull request on our <a href="https://github.com/sci-assess/SciAssess">GitHub repository</a>.</p>
+          </div>
+          <h2 class="title is-3">Citation</h2>
+          <div class="content has-text-justified">
+            <p>If you use SciAssess in your research, please cite our paper:</p>
+            <pre>
+@misc{cai2024sciassess,
+      title={SciAssess: Benchmarking LLM Proficiency in Scientific Literature Analysis},
+      author={Hengxing Cai and Xiaochen Cai and Junhan Chang and Sihang Li and Lin Yao and Changxin Wang and Zhifeng Gao and Yongge Li and Mujie Lin and Shuwen Yang and Jiankun Wang and Yuqi Yin and Yaqi Li and Linfeng Zhang and Guolin Ke},
