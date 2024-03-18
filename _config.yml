@@ -22,7 +22,7 @@ title: Sci-Assess
 navbar-links:
   arXiv: "https://arxiv.org/abs/2403.01976"
   # TODO github链接替换
-  GitHub: "https://sci-assess.github.io/"
+  GitHub: "https://github.com/sci-assess/SciAssess"
 
 ################
 # --- Logo --- #
@@ -48,7 +48,7 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
+  # email: "someone@example.com"
   # TODO: 邮箱修改
 #  rss: true  # remove this line if you don't want to show an RSS link at the bottom
 #  facebook: deanattali
@@ -99,7 +99,7 @@ share-links-active:
 # Remove this if you don't want a link in the footer
 
 # TODO github链接替换
-url-pretty: "https://sci-assess.github.io/"
+url-pretty: "https://github.com/sci-assess/SciAssess"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
