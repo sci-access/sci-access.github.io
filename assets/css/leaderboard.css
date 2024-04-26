@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.table-container {
+    overflow-x: auto;
+    width: 60%;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+}
+tr:hover {
+    background-color: #ddeeee;
+}
+th {
+    background-color: #c1c1c1;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}
