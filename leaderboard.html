@@ -63,9 +63,9 @@ full-width: true
         <li>
             <strong>Timestamp 🔥</strong>
             <ul>
-            <li> <strong>[2024/05]</strong> Added more baseline LLM (CommandR+, Llama3, Qwen1.5-110b) on SciAssess Benchmark. </li>
-            <li> <strong>[2024/05]</strong> Added LLM base models performers. <a href="#base_model">Jump to it!</a> </li>
-            <li> <strong>[2024/04]</strong> We officially released SciAssess Benchmark! And test in several baseline LLM (Uni Finder, Uni Finder-SaaS, Gpt4-Withpdf, Gpt3.5-Withpdf). </li>
+            <li> <strong>[2024/05]</strong> Added Uni Finder Nano on SciAssess Benchmark. </li>
+            <li> <strong>[2024/05]</strong> Added LLM base models performers.
+            <li> <strong>[2024/04]</strong> We officially released SciAssess Benchmark! And test in several baseline LLM (Uni Finder Pro, Gpt4-Withpdf, Gpt3.5-Withpdf). </li>
             </ul>
         </li>
     </ul>
@@ -74,8 +74,156 @@ full-width: true
 <hr>
 
 <div class="table-container">
+    <table id="base_model", class="no-js">
+        <caption>Table 1: Base Models Performers</caption>
+        <thead>
+          <tr>
+            <th>Datasets</th>
+            <th>MMLU-s</span></th>
+            <th>CMMLU-s</span></th>
+            <th>PubMedQA</span></th>
+            <th>Xiezhi-ch-s</span></th>
+            <th>Xiezhi-en-s</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&lt;10B</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ChatGLM-6B</td>
+            <td>47.35</td>
+            <td>46.07</td>
+            <td>66.90</td>
+            <td>59.45</td>
+            <td>55.15</td>
+          </tr>
+          <tr>
+            <td>Mistral-7B</td>
+            <td>58.97</td>
+            <td>36.97</td>
+            <td>60.70</td>
+            <td>48.74</td>
+            <td>64.31</td>
+          </tr>
+          <tr>
+            <td>Qwen1.5-7B</td>
+            <td>57.71</td>
+            <td>70.40</td>
+            <td>68.40</td>
+            <td>71.37</td>
+            <td>65.69</td>
+          </tr>
+          <tr>
+            <td>Llama2-7B</td>
+            <td>38.73</td>
+            <td>28.37</td>
+            <td>49.30</td>
+            <td>31.87</td>
+            <td>39.66</td>
+          </tr>
+          <tr>
+            <td>Llama3-8B</td>
+            <td>62.33</td>
+            <td>41.99</td>
+            <td>68.40</td>
+            <td>60.18</td>
+            <td>64.07</td>
+          </tr>
+          <!-- <tr>
+            <td>SciLLM-7B* (Qwen CPT)</td>
+            <td>56.55</td>
+            <td>69.21</td>
+            <td>69.8</td>
+            <td>71.97</td>
+            <td>65.29</td>
+          </tr> -->
+          <tr>
+            <td>10B ~ 50B</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Llama2-13B</td>
+            <td>50.27</td>
+            <td>32.01</td>
+            <td>51.30</td>
+            <td>39.42</td>
+            <td>56.77</td>
+          </tr>
+          <tr>
+            <td>Qwen1.5-14B</td>
+            <td>66.32</td>
+            <td>77.04</td>
+            <td>69.50</td>
+            <td>74.29</td>
+            <td>69.75</td>
+          </tr>
+          <tr>
+            <td>&gt;50B</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mixtral-8x7B</td>
+            <td>68.34</td>
+            <td>45.03</td>
+            <td>68.50</td>
+            <td>61.56</td>
+            <td>69.91</td>
+          </tr>
+          <tr>
+            <td>Llama2-70B</td>
+            <td>65.16</td>
+            <td>44.99</td>
+            <td>67.70</td>
+            <td>61.31</td>
+            <td>64.15</td>
+          </tr>
+          <tr>
+            <td>Llama3-70B</td>
+            <td>77.44</td>
+            <td>64.95</td>
+            <td>77.50</td>
+            <td>74.94</td>
+            <td>73.48</td>
+          </tr>
+          <tr>
+            <td>Qwen1.5-72B</td>
+            <td>75.52</td>
+            <td>83.87</td>
+            <td>72.30</td>
+            <td>75.75</td>
+            <td>70.88</td>
+          </tr>
+          <tr>
+            <td>Qwen1.5-110B</td>
+            <td>77.85</td>
+            <td>88.69</td>
+            <td>77.20</td>
+            <td>74.45</td>
+            <td>73.24</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr>
+
+<div class="table-container">
 <table>
-    <caption>Table 1: Performers Overview</caption>
+    <caption>Table 2: Performers Overview</caption>
     <thead>
       <tr>
         <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
@@ -89,7 +237,7 @@ full-width: true
     </thead>
     <tbody>
       <tr>
-        <td>Uni Finder</td>
+        <td>Uni Finder Pro</td>
         <td>0.630</td>
         <td>0.486</td>
         <td>0.804</td>
@@ -98,16 +246,7 @@ full-width: true
         <td>0.590</td>
       </tr>
       <tr>
-        <td>Uni Finder-SaaS</td>
-        <td>0.340</td>
-        <td>0.285</td>
-        <td>0.355</td>
-        <td>0.452</td>
-        <td>0.285</td>
-        <td>0.298</td>
-      </tr>
-      <tr>
-        <td>Llama3</td>
+        <td>Uni Finder Nano</td>
         <td>0.524</td>
         <td>0.401</td>
         <td>0.697</td>
@@ -115,7 +254,7 @@ full-width: true
         <td>0.484</td>
         <td>0.590</td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td>Qwen1.5 110b</td>
         <td>0.501</td>
         <td>0.505</td>
@@ -132,7 +271,7 @@ full-width: true
         <td>0.476</td>
         <td>0.420</td>
         <td>0.368</td>
-      </tr>
+      </tr> -->
       <tr>
         <td>GPT4+PyPDF</td>
         <td>0.562</td>
@@ -157,7 +296,7 @@ full-width: true
 
 <div class="table-container">
     <table>
-        <caption>Table 2: Drug Discovery Performers</caption>
+        <caption>Table 3: Drug Discovery Performers</caption>
         <thead>
           <tr>
             <th onclick="restoreOriginalOrder()">Mode<span class="arrow"></span></th>
@@ -173,7 +312,7 @@ full-width: true
         </thead>
         <tbody>
           <tr>
-            <td>Uni Finder</td>
+            <td>Uni Finder Pro</td>
             <td>0.486</td>
             <td>0.230</td>
             <td>0.297</td>
@@ -184,18 +323,7 @@ full-width: true
             <td>0.533</td>
           </tr>
           <tr>
-            <td>Uni Finder-SaaS</td>
-            <td>0.285</td>
-            <td>0.240</td>
-            <td>0.018</td>
-            <td>0.444</td>
-            <td>0.325</td>
-            <td>0.500</td>
-            <td>0.067</td>
-            <td>0.400</td>
-          </tr>
-          <tr>
-            <td>Llama3</td>
+            <td>Uni Finder Nano</td>
             <td>0.401</td>
             <td>0.286</td>
             <td>0.184</td>
@@ -205,7 +333,7 @@ full-width: true
             <td>0.200</td>
             <td>0.267</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Qwen1.5 110b</td>
             <td>0.505</td>
             <td>0.258</td>
@@ -226,7 +354,7 @@ full-width: true
             <td>0.450</td>
             <td>0.333</td>
             <td>0.400</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>GPT4+PyPDF</td>
             <td>0.429</td>
@@ -241,7 +369,7 @@ full-width: true
           <tr>
             <td>GPT3.5+PyPDF</td>
             <td>0.294</td>
-            <td>0.27</td>
+            <td>0.270</td>
             <td>0.002</td>
             <td>0.422</td>
             <td>0.463</td>
@@ -266,7 +394,7 @@ full-width: true
 
 <div class="table-container">
     <table>
-        <caption>Table 3: Biomedicine Performers</caption>
+        <caption>Table 4: Biomedicine Performers</caption>
         <thead>
           <tr>
             <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
@@ -282,7 +410,7 @@ full-width: true
         </thead>
         <tbody>
           <tr>
-            <td>Uni Finder</td>
+            <td>Uni Finder Pro</td>
             <td>0.804</td>
             <td>0.533</td>
             <td>0.890</td>
@@ -293,18 +421,7 @@ full-width: true
             <td>0.717</td>
           </tr>
           <tr>
-            <td>Uni Finder-SaaS</td>
-            <td>0.355</td>
-            <td>0.333</td>
-            <td>0.168</td>
-            <td>0.591</td>
-            <td>0.090</td>
-            <td>0.505</td>
-            <td>0.345</td>
-            <td>0.450</td>
-          </tr>
-          <tr>
-            <td>Llama3</td>
+            <td>Uni Finder Nano</td>
             <td>0.697</td>
             <td>0.467</td>
             <td>0.314</td>
@@ -314,7 +431,7 @@ full-width: true
             <td>0.948</td>
             <td>0.870</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Qwen1.5 110b</td>
             <td>0.577</td>
             <td>0.267</td>
@@ -335,7 +452,7 @@ full-width: true
             <td>0.944</td>
             <td>0.822</td>
             <td>0.490</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>GPT4+PyPDF</td>
             <td>0.779</td>
@@ -375,7 +492,7 @@ full-width: true
 
 <div class="table-container">
     <table>
-        <caption>Table 4: Alloy Materials Performers</caption>
+        <caption>Table 5: Alloy Materials Performers</caption>
         <thead>
           <tr>
             <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
@@ -389,7 +506,7 @@ full-width: true
         </thead>
         <tbody>
           <tr>
-            <td>Uni Finder</td>
+            <td>Uni Finder Pro</td>
             <td>0.661</td>
             <td>0.824</td>
             <td>0.451</td>
@@ -398,16 +515,7 @@ full-width: true
             <td>0.400</td>
           </tr>
           <tr>
-            <td>Uni Finder-SaaS</td>
-            <td>0.452</td>
-            <td>0.451</td>
-            <td>0.192</td>
-            <td>0.500</td>
-            <td>0.583</td>
-            <td>0.533</td>
-          </tr>
-          <tr>
-            <td>Llama3</td>
+            <td>Uni Finder Nano</td>
             <td>0.446</td>
             <td>0.294</td>
             <td>0.427</td>
@@ -415,7 +523,7 @@ full-width: true
             <td>0.541</td>
             <td>0.467</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Qwen1.5 110b</td>
             <td>0.523</td>
             <td>0.392</td>
@@ -432,7 +540,7 @@ full-width: true
             <td>0.420</td>
             <td>0.833</td>
             <td>0.400</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>GPT4+PyPDF</td>
             <td>0.527</td>
@@ -466,7 +574,7 @@ full-width: true
 
 <div class="table-container">
     <table>
-        <caption>Table 5: General Chemistry Performers</caption>
+        <caption>Table 6: General Chemistry Performers</caption>
         <thead>
           <tr>
             <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
@@ -477,24 +585,18 @@ full-width: true
         </thead>
         <tbody>
           <tr>
-            <td>Uni Finder</td>
+            <td>Uni Finder Pro</td>
             <td>0.551</td>
             <td>0.470</td>
             <td>0.633</td>
           </tr>
           <tr>
-            <td>Uni Finder-SaaS</td>
-            <td>0.285</td>
-            <td>0.170</td>
-            <td>0.400</td>
-          </tr>
-          <tr>
-            <td>Llama3</td>
+            <td>Uni Finder Nano</td>
             <td>0.484</td>
             <td>0.400</td>
             <td>0.567</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Qwen1.5 110b</td>
             <td>0.457</td>
             <td>0.380</td>
@@ -505,7 +607,7 @@ full-width: true
             <td>0.420</td>
             <td>0.240</td>
             <td>0.600</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>GPT4+PyPDF</td>
             <td>0.550</td>
@@ -530,7 +632,7 @@ full-width: true
 
 <div class="table-container">
     <table>
-        <caption>Table 6: Organic Materials Performers</caption>
+        <caption>Table 7: Organic Materials Performers</caption>
         <thead>
           <tr>
             <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
@@ -546,7 +648,7 @@ full-width: true
         </thead>
         <tbody>
           <tr>
-            <td>Uni Finder</td>
+            <td>Uni Finder Pro</td>
             <td>0.590</td>
             <td>0.371</td>
             <td>0.303</td>
@@ -557,18 +659,7 @@ full-width: true
             <td>0.500</td>
           </tr>
           <tr>
-            <td>Uni Finder-SaaS</td>
-            <td>0.298</td>
-            <td>0.063</td>
-            <td>0.103</td>
-            <td>0.201</td>
-            <td>0.600</td>
-            <td>0.333</td>
-            <td>0.375</td>
-            <td>0.409</td>
-          </tr>
-          <tr>
-            <td>Llama3</td>
+            <td>Uni Finder Nano</td>
             <td>0.590</td>
             <td>0.390</td>
             <td>0.362</td>
@@ -578,7 +669,7 @@ full-width: true
             <td>0.542</td>
             <td>0.636</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Qwen1.5 110b</td>
             <td>0.443</td>
             <td>0.349</td>
@@ -599,7 +690,7 @@ full-width: true
             <td>0.400</td>
             <td>0.458</td>
             <td>0.545</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>GPT4+PyPDF</td>
             <td>0.525</td>
@@ -637,153 +728,6 @@ full-width: true
     </table>
 </div>
 
-<hr>
-
-<div class="table-container">
-    <table id="base_model", class="no-js">
-        <caption>Table 7: Base Models Performers</caption>
-        <thead>
-          <tr>
-            <th>Datasets</th>
-            <th>MMLU-s</span></th>
-            <th>CMMLU-s</span></th>
-            <th>PubMedQA</span></th>
-            <th>Xiezhi-ch-s</span></th>
-            <th>Xiezhi-en-s</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;10B</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ChatGLM-6B</td>
-            <td>47.35</td>
-            <td>46.07</td>
-            <td>66.9</td>
-            <td>59.45</td>
-            <td>55.15</td>
-          </tr>
-          <tr>
-            <td>Mistral-7B</td>
-            <td>58.97</td>
-            <td>36.97</td>
-            <td>60.7</td>
-            <td>48.74</td>
-            <td>64.31</td>
-          </tr>
-          <tr>
-            <td>Qwen1.5-7B</td>
-            <td>57.71</td>
-            <td>70.40</td>
-            <td>68.4</td>
-            <td>71.37</td>
-            <td>65.69</td>
-          </tr>
-          <tr>
-            <td>Llama2-7B</td>
-            <td>38.73</td>
-            <td>28.37</td>
-            <td>49.3</td>
-            <td>31.87</td>
-            <td>39.66</td>
-          </tr>
-          <tr>
-            <td>Llama3-8B</td>
-            <td>62.33</td>
-            <td>41.99</td>
-            <td>68.4</td>
-            <td>60.18</td>
-            <td>64.07</td>
-          </tr>
-          <tr>
-            <td>SciLLM-7B* (Qwen CPT)</td>
-            <td>56.55</td>
-            <td>69.21</td>
-            <td>69.8</td>
-            <td>71.97</td>
-            <td>65.29</td>
-          </tr>
-          <tr>
-            <td>10B ~ 50B</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Llama2-13B</td>
-            <td>50.27</td>
-            <td>32.01</td>
-            <td>51.3</td>
-            <td>39.42</td>
-            <td>56.77</td>
-          </tr>
-          <tr>
-            <td>Qwen1.5-14B</td>
-            <td>66.32</td>
-            <td>77.04</td>
-            <td>69.5</td>
-            <td>74.29</td>
-            <td>69.75</td>
-          </tr>
-          <tr>
-            <td>&gt;50B</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Mixtral-8x7B</td>
-            <td>68.34</td>
-            <td>45.03</td>
-            <td>68.5</td>
-            <td>61.56</td>
-            <td>69.91</td>
-          </tr>
-          <tr>
-            <td>Llama2-70B</td>
-            <td>65.16</td>
-            <td>44.99</td>
-            <td>67.7</td>
-            <td>61.31</td>
-            <td>64.15</td>
-          </tr>
-          <tr>
-            <td>Llama3-70B</td>
-            <td>77.44</td>
-            <td>64.95</td>
-            <td>77.5</td>
-            <td>74.94</td>
-            <td>73.48</td>
-          </tr>
-          <tr>
-            <td>Qwen1.5-72B</td>
-            <td>75.52</td>
-            <td>83.87</td>
-            <td>72.3</td>
-            <td>75.75</td>
-            <td>70.88</td>
-          </tr>
-          <tr>
-            <td>Qwen1.5-110B</td>
-            <td>77.85</td>
-            <td>88.69</td>
-            <td>77.2</td>
-            <td>74.45</td>
-            <td>73.24</td>
-          </tr>
-        </tbody>
-    </table>
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
