@@ -15,9 +15,11 @@ js:
             font-family: Arial, sans-serif;
         }
         .dropdown {
-            margin: 20px;
+            /* margin: 0 auto; */
+            margin: 20px auto;
         }
         .tab {
+            margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             background-color: #f1f1f1;
@@ -115,7 +117,7 @@ js:
         <li>
             <strong>Timestamp 🔥</strong>
             <ul>
-            <li> <strong>[2024/05]</strong> Added Qwen1.5-110B+PyPDF, Llama3-70B+PyPDF on SciAssess Benchmark. </li>
+            <li> <strong>[2024/06]</strong> Introduce more annotated data to update Sciassess Benchmark and verify it on various models. </li>
             <li> <strong>[2024/05]</strong> Added Deepseek+PyPDF, Command-R-Plus+PyPDF on SciAssess Benchmark. </li>
             <li> <strong>[2024/05]</strong> Added Claude3+PyPDF, Qwen-api+PyPDF, Moonshot, Skylark+PyPDF on SciAssess Benchmark. </li>
             <li> <strong>[2024/05]</strong> Added Uni-Smart Nano on SciAssess Benchmark. </li>
@@ -199,8 +201,9 @@ js:
                 <th class="Drug_Chart_QA", onclick="sortTable(2)">Drug Chart QA<span class="arrow"></span></th>
                 <th class="Tag_to_Molecule", onclick="sortTable(3)">Tag to Molecule<span class="arrow"></span></th>
                 <th class="Markush_to_Molecule", onclick="sortTable(4)">Markush to Molecule<span class="arrow"></span></th>
-                <th class="Reaction_QA", onclick="sortTable(5)">Reaction QA<span class="arrow"></span></th>
-                <th class="Research_Targets_Identification", onclick="sortTable(6)">Research Targets Identification<span class="arrow"></span></th>
+                <th class="Molecule_in_Document", onclick="sortTable(5)">Molecule in Document<span class="arrow"></span></th>
+                <th class="Reaction_QA", onclick="sortTable(6)">Reaction QA<span class="arrow"></span></th>
+                <th class="Research_Targets_Identification", onclick="sortTable(7)">Research Targets Identification<span class="arrow"></span></th>
             </tr>
         </thead>
         <tbody id="drugDiscoveryBody"></tbody>
