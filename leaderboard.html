@@ -9,13 +9,56 @@ js:
   - "/assets/js/leaderboard.js" -->
 ---
 
+<html lang="en">
 <head>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+            margin: 0 auto;
+            display: none;
         }
-        .dropdown {
-            /* margin: 0 auto; */
+        .table-container.active {
+            display: block;
+        }
+        .timestamp-container{
+            padding-left: 10%;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        tr:hover {
+            background-color: #ddeeee;
+        }
+        th {
+            background-color: #c1c1c1;
+            cursor: pointer;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .arrow {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        caption {
+            caption-side: top-left; /* Position the caption to the top left corner of the table */
+            font-size: 16px; /* Larger text for the caption */
+            font-weight: bold; /* Bold text for the caption */
+            text-align: left; /* Align text to the left */
+            margin: 10px; /* Space around the caption */
+            padding: 5px; /* Padding inside the caption */
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+        /* .dropdown {
             margin: 20px auto;
             width: 100%;
         }
@@ -61,56 +104,10 @@ js:
         }
         .tab input[type="checkbox"]:not(:checked) + label::before {
             visibility: hidden;
-        }
-        .table-container {
-            overflow-x: auto;
-            width: 100%;
-            margin: 0 auto;
-            display: none;
-        }
-        .table-container.active {
-            display: block;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        tr:hover {
-            background-color: #ddeeee;
-        }
-        th {
-            background-color: #c1c1c1;
-            cursor: pointer;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        .timestamp-container{
-            padding-left: 10%;
-            margin-bottom: 30px;
-        }
-        .arrow {
-            /* position: absolute; */
-            margin-left: 5px; /* Adjusts the position of the arrow to the right of the header text */
-            font-size: 12px;
-        }
-        caption {
-            caption-side: top-left; /* Position the caption to the top left corner of the table */
-            font-size: 16px; /* Larger text for the caption */
-            font-weight: bold; /* Bold text for the caption */
-            text-align: left; /* Align text to the left */
-            margin: 10px; /* Space around the caption */
-            padding: 5px; /* Padding inside the caption */
-        }
-        hr {
-            border: 0;
-            height: 1px; /* Height of the horizontal line */
-            background-color: #ccc; /* Color of the horizontal line */
-            margin: 20px 0; /* Space around the horizontal line */
-        }
+        } */
     </style>
 </head>
+
 <body>
 
 <div class="timestamp-container">
@@ -434,3 +431,4 @@ js:
 </script>
 
 </body>
+</html>
