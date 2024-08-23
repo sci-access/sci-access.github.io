@@ -162,7 +162,7 @@ function generateTable(tableId, models, data, columns) {
         columns.forEach(column => {
             const cell = document.createElement('td');
             cell.classList.add(`${column.replace(/\s+/g, '_')}`);
-            cell.textContent = data[index][column];
+            const value = data[index][column];
             cell.textContent = typeof value === 'number' ? value.toFixed(3) : value;
             row.appendChild(cell);
         });
