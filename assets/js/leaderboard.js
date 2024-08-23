@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Alloy Chart QA': 0.200, 'Composition Extraction': 0.128, 'Temperature Extraction': 0.546, 'Sample Differentiation': 0.228, 'Treatment Sequence': 0.588}
     ];
     const biomedicineData = [
-        {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.916, 'Disease Entities Recognition': 0.849, 'Compound Eisease Recognition': 0.750, 'Gene Disease Function': 0.945, 'Gene Disease Regulation': 0.939},
+        {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.916, 'Disease Entities Recognition': 0.849, 'Compound Disease Recognition': 0.750, 'Gene Disease Function': 0.945, 'Gene Disease Regulation': 0.939},
         {'Biology Chart QA': 0.580, 'Chemical Entities Recognition': 0.454, 'Disease Entities Recognition': 0.279, 'Compound Disease Recognition': 0.755, 'Gene Disease Function': 0.931, 'Gene Disease Regulation': 0.949},
         {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.665, 'Disease Entities Recognition': 0.765, 'Compound Disease Recognition': 0.786, 'Gene Disease Function': 0.974, 'Gene Disease Regulation': 0.914},
         {'Biology Chart QA': 0.390, 'Chemical Entities Recognition': 0.540, 'Disease Entities Recognition': 0.153, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.864, 'Gene Disease Regulation': 0.832},
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Generate table content
     generateTable('fundamentalScience', models, fundamentalScienceData, ['MMLU (science)', 'CMMLU (science)', 'Xiezhi-Ch (science)', 'Xiezhi-En (science)']);
     generateTable('alloyMaterials', models, alloyMaterialsData, ['Alloy Chart QA', 'Composition Extraction', 'Temperature Extraction', 'Sample Differentiation', 'Treatment Sequence']);
-    generateTable('biomedicine', models, biomedicineData, ['Biology Chart QA', 'Chemical Entities Recognition', 'Disease Entities Recognition', 'Compound Eisease Recognition', 'Gene Disease Function', 'Gene Disease Regulation']);
+    generateTable('biomedicine', models, biomedicineData, ['Biology Chart QA', 'Chemical Entities Recognition', 'Disease Entities Recognition', 'Compound Disease Recognition', 'Gene Disease Function', 'Gene Disease Regulation']);
     generateTable('drugDiscovery', models, drugDiscoveryData, ['Affinity Extraction', 'Drug Chart QA', 'Tag to Molecule', 'Markush to Molecule', 'Molecule in Document', 'Reaction QA', 'Research Targets Identification']);
     generateTable('organicMaterials', models, organicMaterialsData, ['Electrolyte Table QA', 'OLED Property Extraction', 'Polymer Chart QA', 'Polymer Composition QA', 'Polymer Property Extraction', 'Solubility Extraction', 'Reaction Mechanism QA']);
 
@@ -163,6 +163,7 @@ function generateTable(tableId, models, data, columns) {
             const cell = document.createElement('td');
             cell.classList.add(`${column.replace(/\s+/g, '_')}`);
             cell.textContent = data[index][column];
+            cell.textContent = typeof value === 'number' ? value.toFixed(3) : value;
             row.appendChild(cell);
         });
         tbody.appendChild(row);
