@@ -154,6 +154,7 @@ function generateTable(tableId, models, data, columns) {
 
     // Generate table body
     const tbody = document.getElementById(`${tableId}Body`);
+    tbody.innerHTML = ''; // Clear previous table rows if any
     models.forEach((model, index) => {
         const row = document.createElement('tr');
         const modelCell = document.createElement('td');
