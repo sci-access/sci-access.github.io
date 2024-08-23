@@ -6,18 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Table data
     const models = ['Uni-SMART', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Llama3', 'Deepseek', 'Qwen2', 'Command R+'];
     const fundamentalScienceData = [
-        {"MMLU (science)": 0.839, "CMMLU (science)": 0.785, "Xiezhi-Ch (science)": 0.736, "Xiezhi-En (science)": 0.701},
-        {"MMLU (science)": 0.839, "CMMLU (science)": 0.785, "Xiezhi-Ch (science)": 0.736, "Xiezhi-En (science)": 0.701},
-        {"MMLU (science)": 0.783, "CMMLU (science)": 0.644, "Xiezhi-Ch (science)": 0.724, "Xiezhi-En (science)": 0.683},
-        {"MMLU (science)": 0.629, "CMMLU (science)": 0.438, "Xiezhi-Ch (science)": 0.696, "Xiezhi-En (science)": 0.644},
-        {"MMLU (science)": 0.774, "CMMLU (science)": 0.723, "Xiezhi-Ch (science)": 0.734, "Xiezhi-En (science)": 0.677},
-        {"MMLU (science)": 0.795, "CMMLU (science)": 0.643, "Xiezhi-Ch (science)": 0.731, "Xiezhi-En (science)": 0.673},
-        {"MMLU (science)": 0.720, "CMMLU (science)": 0.841, "Xiezhi-Ch (science)": 0.720, "Xiezhi-En (science)": 0.667},
-        {"MMLU (science)": 0.799, "CMMLU (science)": 0.731, "Xiezhi-Ch (science)": 0.716, "Xiezhi-En (science)": 0.652},
-        {"MMLU (science)": 0.766, "CMMLU (science)": 0.651, "Xiezhi-Ch (science)": 0.731, "Xiezhi-En (science)": 0.687},
-        {"MMLU (science)": 0.737, "CMMLU (science)": 0.769, "Xiezhi-Ch (science)": 0.748, "Xiezhi-En (science)": 0.685},
-        {"MMLU (science)": 0.782, "CMMLU (science)": 0.870, "Xiezhi-Ch (science)": 0.746, "Xiezhi-En (science)": 0.692},
-        {"MMLU (science)": 0.647, "CMMLU (science)": 0.448, "Xiezhi-Ch (science)": 0.683, "Xiezhi-En (science)": 0.634}
+        {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
+        {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
+        {'MMLU (science)': 0.783, 'CMMLU (science)': 0.644, 'Xiezhi-Ch (science)': 0.724, 'Xiezhi-En (science)': 0.683},
+        {'MMLU (science)': 0.629, 'CMMLU (science)': 0.438, 'Xiezhi-Ch (science)': 0.696, 'Xiezhi-En (science)': 0.644},
+        {'MMLU (science)': 0.774, 'CMMLU (science)': 0.723, 'Xiezhi-Ch (science)': 0.734, 'Xiezhi-En (science)': 0.677},
+        {'MMLU (science)': 0.795, 'CMMLU (science)': 0.643, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.673},
+        {'MMLU (science)': 0.720, 'CMMLU (science)': 0.841, 'Xiezhi-Ch (science)': 0.720, 'Xiezhi-En (science)': 0.667},
+        {'MMLU (science)': 0.799, 'CMMLU (science)': 0.731, 'Xiezhi-Ch (science)': 0.716, 'Xiezhi-En (science)': 0.652},
+        {'MMLU (science)': 0.766, 'CMMLU (science)': 0.651, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.687},
+        {'MMLU (science)': 0.737, 'CMMLU (science)': 0.769, 'Xiezhi-Ch (science)': 0.748, 'Xiezhi-En (science)': 0.685},
+        {'MMLU (science)': 0.782, 'CMMLU (science)': 0.870, 'Xiezhi-Ch (science)': 0.746, 'Xiezhi-En (science)': 0.692},
+        {'MMLU (science)': 0.647, 'CMMLU (science)': 0.448, 'Xiezhi-Ch (science)': 0.683, 'Xiezhi-En (science)': 0.634}
     ];
     const alloyMaterialsData = [
         {'Alloy Chart QA': 0.933, 'Composition Extraction': 0.511, 'Temperature Extraction': 0.879, 'Sample Differentiation': 0.603, 'Treatment Sequence': 0.745},
@@ -35,17 +35,17 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     const biomedicineData = [
         {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.916, 'Disease Entities Recognition': 0.849, 'Compound Eisease Recognition': 0.750, 'Gene Disease Function': 0.945, 'Gene Disease Regulation': 0.939},
-        {"Biology Chart QA": 0.580, "Chemical Entities Recognition": 0.454, "Disease Entities Recognition": 0.279, "Compound Disease Recognition": 0.755, "Gene Disease Function": 0.931, "Gene Disease Regulation": 0.949},
-        {"Biology Chart QA": 0.480, "Chemical Entities Recognition": 0.665, "Disease Entities Recognition": 0.765, "Compound Disease Recognition": 0.786, "Gene Disease Function": 0.974, "Gene Disease Regulation": 0.914},
-        {"Biology Chart QA": 0.390, "Chemical Entities Recognition": 0.540, "Disease Entities Recognition": 0.153, "Compound Disease Recognition": 0.733, "Gene Disease Function": 0.864, "Gene Disease Regulation": 0.832},
-        {"Biology Chart QA": 0.545, "Chemical Entities Recognition": 0.201, "Disease Entities Recognition": 0.000, "Compound Disease Recognition": 0.770, "Gene Disease Function": 0.771, "Gene Disease Regulation": 0.944},
-        {"Biology Chart QA": 0.505, "Chemical Entities Recognition": 0.844, "Disease Entities Recognition": 0.653, "Compound Disease Recognition": 0.788, "Gene Disease Function": 0.944, "Gene Disease Regulation": 0.939},
-        {"Biology Chart QA": 0.480, "Chemical Entities Recognition": 0.911, "Disease Entities Recognition": 0.675, "Compound Disease Recognition": 0.771, "Gene Disease Function": 0.779, "Gene Disease Regulation": 0.910},
-        {"Biology Chart QA": 0.616, "Chemical Entities Recognition": 0.678, "Disease Entities Recognition": 0.437, "Compound Disease Recognition": 0.733, "Gene Disease Function": 0.954, "Gene Disease Regulation": 0.856},
-        {"Biology Chart QA": 0.520, "Chemical Entities Recognition": 0.400, "Disease Entities Recognition": 0.526, "Compound Disease Recognition": 0.794, "Gene Disease Function": 0.996, "Gene Disease Regulation": 0.971},
-        {"Biology Chart QA": 0.545, "Chemical Entities Recognition": 0.536, "Disease Entities Recognition": 0.331, "Compound Disease Recognition": 0.757, "Gene Disease Function": 0.819, "Gene Disease Regulation": 0.952},
-        {"Biology Chart QA": 0.515, "Chemical Entities Recognition": 0.832, "Disease Entities Recognition": 0.722, "Compound Disease Recognition": 0.794, "Gene Disease Function": 0.930, "Gene Disease Regulation": 0.963},
-        {"Biology Chart QA": 0.535, "Chemical Entities Recognition": 0.850, "Disease Entities Recognition": 0.258, "Compound Disease Recognition": 0.764, "Gene Disease Function": 0.884, "Gene Disease Regulation": 0.936}
+        {'Biology Chart QA': 0.580, 'Chemical Entities Recognition': 0.454, 'Disease Entities Recognition': 0.279, 'Compound Disease Recognition': 0.755, 'Gene Disease Function': 0.931, 'Gene Disease Regulation': 0.949},
+        {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.665, 'Disease Entities Recognition': 0.765, 'Compound Disease Recognition': 0.786, 'Gene Disease Function': 0.974, 'Gene Disease Regulation': 0.914},
+        {'Biology Chart QA': 0.390, 'Chemical Entities Recognition': 0.540, 'Disease Entities Recognition': 0.153, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.864, 'Gene Disease Regulation': 0.832},
+        {'Biology Chart QA': 0.545, 'Chemical Entities Recognition': 0.201, 'Disease Entities Recognition': 0.000, 'Compound Disease Recognition': 0.770, 'Gene Disease Function': 0.771, 'Gene Disease Regulation': 0.944},
+        {'Biology Chart QA': 0.505, 'Chemical Entities Recognition': 0.844, 'Disease Entities Recognition': 0.653, 'Compound Disease Recognition': 0.788, 'Gene Disease Function': 0.944, 'Gene Disease Regulation': 0.939},
+        {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.911, 'Disease Entities Recognition': 0.675, 'Compound Disease Recognition': 0.771, 'Gene Disease Function': 0.779, 'Gene Disease Regulation': 0.910},
+        {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.678, 'Disease Entities Recognition': 0.437, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.954, 'Gene Disease Regulation': 0.856},
+        {'Biology Chart QA': 0.520, 'Chemical Entities Recognition': 0.400, 'Disease Entities Recognition': 0.526, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.996, 'Gene Disease Regulation': 0.971},
+        {'Biology Chart QA': 0.545, 'Chemical Entities Recognition': 0.536, 'Disease Entities Recognition': 0.331, 'Compound Disease Recognition': 0.757, 'Gene Disease Function': 0.819, 'Gene Disease Regulation': 0.952},
+        {'Biology Chart QA': 0.515, 'Chemical Entities Recognition': 0.832, 'Disease Entities Recognition': 0.722, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.930, 'Gene Disease Regulation': 0.963},
+        {'Biology Chart QA': 0.535, 'Chemical Entities Recognition': 0.850, 'Disease Entities Recognition': 0.258, 'Compound Disease Recognition': 0.764, 'Gene Disease Function': 0.884, 'Gene Disease Regulation': 0.936}
     ]
     const drugDiscoveryData = [
         {'Affinity Extraction': 0.200, 'Drug Chart QA': 0.600, 'Tag to Molecule': 0.188, 'Markush to Molecule': 0.686, 'Molecule in Document': 0.720, 'Reaction QA': 0.768, 'Research Targets Identification': 0.823},
@@ -120,10 +120,10 @@ function showTable(tableId) {
 function toggleColumn(columnClass) {
     var elements = document.getElementsByClassName(columnClass);
     for (var i = 0; i < elements.length; i++) {
-        if (elements[i].style.display === "none") {
-            elements[i].style.display = "";
+        if (elements[i].style.display === 'none') {
+            elements[i].style.display = '';
         } else {
-            elements[i].style.display = "none";
+            elements[i].style.display = 'none';
         }
     }
 }
@@ -196,7 +196,7 @@ function updateArrows(table, columnIndex, direction) {
     Array.prototype.forEach.call(headers, function(th) {
         th.querySelector('.arrow').textContent = ''; // Clear arrows
     });
-    headers[columnIndex].querySelector('.arrow').textContent = direction === 'asc' ? "▲" : "▼"; // Add arrow to the current column
+    headers[columnIndex].querySelector('.arrow').textContent = direction === 'asc' ? '▲' : '▼'; // Add arrow to the current column
 }
 
 function restoreOriginalOrder(table) {
