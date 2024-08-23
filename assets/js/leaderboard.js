@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showTable('fundamentalScience');
 
     // Table data
-    const models = ['Uni-SMART', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Llama3', 'Deepseek', 'Qwen2', 'Command R+'];
+    const models = ['Uni-SMART', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Ernie4', 'Llama3', 'Deepseek', 'Qwen2', 'Command R+'];
     const fundamentalScienceData = [
         {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
         {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'MMLU (science)': 0.795, 'CMMLU (science)': 0.643, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.673},
         {'MMLU (science)': 0.720, 'CMMLU (science)': 0.841, 'Xiezhi-Ch (science)': 0.720, 'Xiezhi-En (science)': 0.667},
         {'MMLU (science)': 0.799, 'CMMLU (science)': 0.731, 'Xiezhi-Ch (science)': 0.716, 'Xiezhi-En (science)': 0.652},
+        {'MMLU (science)': 0.598, 'CMMLU (science)': 0.566, 'Xiezhi-Ch (science)': 0.636, 'Xiezhi-En (science)': 0.634},
         {'MMLU (science)': 0.766, 'CMMLU (science)': 0.651, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.687},
         {'MMLU (science)': 0.737, 'CMMLU (science)': 0.769, 'Xiezhi-Ch (science)': 0.748, 'Xiezhi-En (science)': 0.685},
         {'MMLU (science)': 0.782, 'CMMLU (science)': 0.870, 'Xiezhi-Ch (science)': 0.746, 'Xiezhi-En (science)': 0.692},
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Alloy Chart QA': 0.400, 'Composition Extraction': 0.495, 'Temperature Extraction': 0.865, 'Sample Differentiation': 0.586, 'Treatment Sequence': 0.745},
         {'Alloy Chart QA': 0.467, 'Composition Extraction': 0.304, 'Temperature Extraction': 0.700, 'Sample Differentiation': 0.316, 'Treatment Sequence': 0.745},
         {'Alloy Chart QA': 0.667, 'Composition Extraction': 0.239, 'Temperature Extraction': 0.841, 'Sample Differentiation': 0.658, 'Treatment Sequence': 0.696},
+        {'Alloy Chart QA': 0.200, 'Composition Extraction': 0.169, 'Temperature Extraction': 0.343, 'Sample Differentiation': 0.253, 'Treatment Sequence': 0.529},
         {'Alloy Chart QA': 0.467, 'Composition Extraction': 0.212, 'Temperature Extraction': 0.604, 'Sample Differentiation': 0.376, 'Treatment Sequence': 0.539},
         {'Alloy Chart QA': 0.333, 'Composition Extraction': 0.389, 'Temperature Extraction': 0.754, 'Sample Differentiation': 0.616, 'Treatment Sequence': 0.686},
         {'Alloy Chart QA': 0.400, 'Composition Extraction': 0.423, 'Temperature Extraction': 0.797, 'Sample Differentiation': 0.557, 'Treatment Sequence': 0.657},
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Biology Chart QA': 0.505, 'Chemical Entities Recognition': 0.844, 'Disease Entities Recognition': 0.653, 'Compound Disease Recognition': 0.788, 'Gene Disease Function': 0.944, 'Gene Disease Regulation': 0.939},
         {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.911, 'Disease Entities Recognition': 0.675, 'Compound Disease Recognition': 0.771, 'Gene Disease Function': 0.779, 'Gene Disease Regulation': 0.910},
         {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.678, 'Disease Entities Recognition': 0.437, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.954, 'Gene Disease Regulation': 0.856},
+        {'Biology Chart QA': 0.475, 'Chemical Entities Recognition': 0.884, 'Disease Entities Recognition': 0.703, 'Compound Disease Recognition': 0.705, 'Gene Disease Function': 0.850, 'Gene Disease Regulation': 0.960},
         {'Biology Chart QA': 0.520, 'Chemical Entities Recognition': 0.400, 'Disease Entities Recognition': 0.526, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.996, 'Gene Disease Regulation': 0.971},
         {'Biology Chart QA': 0.545, 'Chemical Entities Recognition': 0.536, 'Disease Entities Recognition': 0.331, 'Compound Disease Recognition': 0.757, 'Gene Disease Function': 0.819, 'Gene Disease Regulation': 0.952},
         {'Biology Chart QA': 0.515, 'Chemical Entities Recognition': 0.832, 'Disease Entities Recognition': 0.722, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.930, 'Gene Disease Regulation': 0.963},
@@ -56,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Affinity Extraction': 0.097, 'Drug Chart QA': 0.200, 'Tag to Molecule': 0.035, 'Markush to Molecule': 0.644, 'Molecule in Document': 0.480, 'Reaction QA': 0.663, 'Research Targets Identification': 0.794},
         {'Affinity Extraction': 0.050, 'Drug Chart QA': 0.533, 'Tag to Molecule': 0.094, 'Markush to Molecule': 0.217, 'Molecule in Document': 0.560, 'Reaction QA': 0.442, 'Research Targets Identification': 0.622},
         {'Affinity Extraction': 0.054, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.139, 'Markush to Molecule': 0.218, 'Molecule in Document': 0.520, 'Reaction QA': 0.442, 'Research Targets Identification': 0.825},
+        {'Affinity Extraction': 0.059, 'Drug Chart QA': 0.200, 'Tag to Molecule': 0.000, 'Markush to Molecule': 0.000, 'Molecule in Document': 0.360, 'Reaction QA': 0.242, 'Research Targets Identification': 0.665},
         {'Affinity Extraction': 0.064, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.034, 'Markush to Molecule': 0.478, 'Molecule in Document': 0.680, 'Reaction QA': 0.611, 'Research Targets Identification': 0.600},
         {'Affinity Extraction': 0.017, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.014, 'Markush to Molecule': 0.543, 'Molecule in Document': 0.460, 'Reaction QA': 0.368, 'Research Targets Identification': 0.687},
         {'Affinity Extraction': 0.075, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.000, 'Markush to Molecule': 0.358, 'Molecule in Document': 0.460, 'Reaction QA': 0.442, 'Research Targets Identification': 0.410},
@@ -70,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Electrolyte Table QA': 0.870, 'OLED Property Extraction': 0.477, 'Polymer Chart QA': 0.467, 'Polymer Composition QA': 0.881, 'Polymer Property Extraction': 0.629, 'Solubility Extraction': 0.426, 'Reaction Mechanism QA': 0.455},
         {'Electrolyte Table QA': 0.710, 'OLED Property Extraction': 0.259, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.927, 'Polymer Property Extraction': 0.514, 'Solubility Extraction': 0.371, 'Reaction Mechanism QA': 0.636},
         {'Electrolyte Table QA': 0.880, 'OLED Property Extraction': 0.093, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.927, 'Polymer Property Extraction': 0.606, 'Solubility Extraction': 0.397, 'Reaction Mechanism QA': 0.727},
+        {'Electrolyte Table QA': 0.410, 'OLED Property Extraction': 0.180, 'Polymer Chart QA': 0.000, 'Polymer Composition QA': 0.450, 'Polymer Property Extraction': 0.406, 'Solubility Extraction': 0.347, 'Reaction Mechanism QA': 0.273},
         {'Electrolyte Table QA': 0.460, 'OLED Property Extraction': 0.263, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.734, 'Polymer Property Extraction': 0.536, 'Solubility Extraction': 0.399, 'Reaction Mechanism QA': 0.500},
         {'Electrolyte Table QA': 0.720, 'OLED Property Extraction': 0.292, 'Polymer Chart QA': 0.733, 'Polymer Composition QA': 0.881, 'Polymer Property Extraction': 0.652, 'Solubility Extraction': 0.432, 'Reaction Mechanism QA': 0.545},
         {'Electrolyte Table QA': 0.620, 'OLED Property Extraction': 0.392, 'Polymer Chart QA': 0.933, 'Polymer Composition QA': 0.936, 'Polymer Property Extraction': 0.636, 'Solubility Extraction': 0.400, 'Reaction Mechanism QA': 0.591},
