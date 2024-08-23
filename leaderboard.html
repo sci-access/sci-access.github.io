@@ -14,6 +14,7 @@ js:
         <li>
             <strong>Timestamp 🔥</strong>
             <ul>
+            <li> <strong>[2024/08]</strong> Add Ernie4 (Baidu Inc.) on SciAssess Benchmark. </li>
             <li> <strong>[2024/06]</strong> Introduce more annotated data to update Sciassess Benchmark and verify it on various models. </li>
             <li> <strong>[2024/05]</strong> Added Deepseek+PyPDF, Command-R-Plus+PyPDF on SciAssess Benchmark. </li>
             <li> <strong>[2024/05]</strong> Added Claude3+PyPDF, Qwen-api+PyPDF, Moonshot, Skylark+PyPDF on SciAssess Benchmark. </li>
@@ -29,12 +30,31 @@ js:
 <div class="dropdown">
     <label for="tableSelect">Select Table:</label>
     <select id="tableSelect" onchange="showTable(this.value)">
+        <option value="overallAverage">Overall Average</option>
         <option value="fundamentalScience">Fundamental Science</option>
         <option value="alloyMaterials">Alloy Materials</option>
         <option value="biomedicine">Biomedicine</option>
         <option value="drugDiscovery">Drug Discovery</option>
         <option value="organicMaterials">Organic Materials</option>
     </select>
+</div>
+
+<div id="overallAverage" class="table-container">
+    <div class="tab" id="overallAverageTab"></div>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
+                <th class="Fundamental_Science" onclick="sortTable(1)">Fundamental Science<span class="arrow"></span></th>
+                <th class="Alloy_Materials" onclick="sortTable(2)">Alloy Materials<span class="arrow"></span></th>
+                <th class="Biomedicine" onclick="sortTable(3)">Biomedicine<span class="arrow"></span></th>
+                <th class="Drug_Discovery" onclick="sortTable(4)">Drug_Discovery<span class="arrow"></span></th>
+                <th class="Organic_Materials" onclick="sortTable(5)">Organic Materials<span class="arrow"></span></th>
+                <th class="Overall_Average" onclick="sortTable(6)">Overall Average<span class="arrow"></span></th>
+            </tr>
+        </thead>
+        <tbody id="overallAverageBody"></tbody>
+    </table>
 </div>
 
 <div id="fundamentalScience" class="table-container">

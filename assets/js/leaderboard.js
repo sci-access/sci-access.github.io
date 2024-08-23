@@ -1,10 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Default to showing the first table
-    showTable('fundamentalScience');
+    showTable('overallAverage');
 
     // Table data
     const models = ['Uni-SMART', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Ernie4', 'Llama3', 'Deepseek', 'Qwen2', 'Command R+'];
+    const overallAverageData = [
+        {'Fundamental Science': 0.765, 'Alloy Materials': 0.734, 'Biomedicine': 0.836, 'Drug Discovery': 0.569, 'Organic Materials': 0.726, 'Overall Average': 0.726},
+        {'Fundamental Science': 0.765, 'Alloy Materials': 0.631, 'Biomedicine': 0.658, 'Drug Discovery': 0.441, 'Organic Materials': 0.677, 'Overall Average': 0.634},
+        {'Fundamental Science': 0.709, 'Alloy Materials': 0.646, 'Biomedicine': 0.764, 'Drug Discovery': 0.466, 'Organic Materials': 0.652, 'Overall Average': 0.647},
+        {'Fundamental Science': 0.602, 'Alloy Materials': 0.361, 'Biomedicine': 0.585, 'Drug Discovery': 0.284, 'Organic Materials': 0.431, 'Overall Average': 0.453},
+        {'Fundamental Science': 0.727, 'Alloy Materials': 0.557, 'Biomedicine': 0.539, 'Drug Discovery': 0.320, 'Organic Materials': 0.566, 'Overall Average': 0.542},
+        {'Fundamental Science': 0.711, 'Alloy Materials': 0.618, 'Biomedicine': 0.779, 'Drug Discovery': 0.416, 'Organic Materials': 0.601, 'Overall Average': 0.625},
+        {'Fundamental Science': 0.737, 'Alloy Materials': 0.506, 'Biomedicine': 0.754, 'Drug Discovery': 0.362, 'Organic Materials': 0.612, 'Overall Average': 0.594},
+        {'Fundamental Science': 0.725, 'Alloy Materials': 0.620, 'Biomedicine': 0.712, 'Drug Discovery': 0.381, 'Organic Materials': 0.633, 'Overall Average': 0.614},
+        {'Fundamental Science': 0.609, 'Alloy Materials': 0.299, 'Biomedicine': 0.763, 'Drug Discovery': 0.218, 'Organic Materials': 0.295, 'Overall Average': 0.437},
+        {'Fundamental Science': 0.709, 'Alloy Materials': 0.440, 'Biomedicine': 0.740, 'Drug Discovery': 0.410, 'Organic Materials': 0.537, 'Overall Average': 0.559},
+        {'Fundamental Science': 0.735, 'Alloy Materials': 0.656, 'Biomedicine': 0.757, 'Drug Discovery': 0.356, 'Organic Materials': 0.608, 'Overall Average': 0.582},
+        {'Fundamental Science': 0.773, 'Alloy Materials': 0.567, 'Biomedicine': 0.793, 'Drug Discovery': 0.306, 'Organic Materials': 0.644, 'Overall Average': 0.616},
+        {'Fundamental Science': 0.603, 'Alloy Materials': 0.338, 'Biomedicine': 0.705, 'Drug Discovery': 0.314, 'Organic Materials': 0.468, 'Overall Average': 0.486}
+    ];
     const fundamentalScienceData = [
         {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
         {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
@@ -82,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // Generate table content
+    generateTable('overallAverage', models, overallAverageData, ['Fundamental Science', 'Alloy Materials', 'Biomedicine', 'Drug Discovery', 'Organic Materials', 'Overall Average']);
     generateTable('fundamentalScience', models, fundamentalScienceData, ['MMLU (science)', 'CMMLU (science)', 'Xiezhi-Ch (science)', 'Xiezhi-En (science)']);
     generateTable('alloyMaterials', models, alloyMaterialsData, ['Alloy Chart QA', 'Composition Extraction', 'Temperature Extraction', 'Sample Differentiation', 'Treatment Sequence']);
     generateTable('biomedicine', models, biomedicineData, ['Biology Chart QA', 'Chemical Entities Recognition', 'Disease Entities Recognition', 'Compound Disease Recognition', 'Gene Disease Function', 'Gene Disease Regulation']);
