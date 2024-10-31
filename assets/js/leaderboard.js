@@ -1,108 +1,92 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Default to showing the first table
-    showTable('overallAverage');
+    showTable('average');
 
     // Table data
-    const models = ['Uni-SMART', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Ernie4', 'Llama3', 'Deepseek', 'Qwen2', 'Command R+'];
-    const overallAverageData = [
-        {'Fundamental Science': 0.765, 'Alloy Materials': 0.734, 'Biomedicine': 0.836, 'Drug Discovery': 0.569, 'Organic Materials': 0.726, 'Overall Average': 0.726},
-        {'Fundamental Science': 0.765, 'Alloy Materials': 0.631, 'Biomedicine': 0.658, 'Drug Discovery': 0.441, 'Organic Materials': 0.677, 'Overall Average': 0.634},
-        {'Fundamental Science': 0.709, 'Alloy Materials': 0.646, 'Biomedicine': 0.764, 'Drug Discovery': 0.466, 'Organic Materials': 0.652, 'Overall Average': 0.647},
-        {'Fundamental Science': 0.602, 'Alloy Materials': 0.361, 'Biomedicine': 0.585, 'Drug Discovery': 0.284, 'Organic Materials': 0.431, 'Overall Average': 0.453},
-        {'Fundamental Science': 0.727, 'Alloy Materials': 0.557, 'Biomedicine': 0.539, 'Drug Discovery': 0.320, 'Organic Materials': 0.566, 'Overall Average': 0.542},
-        {'Fundamental Science': 0.711, 'Alloy Materials': 0.618, 'Biomedicine': 0.779, 'Drug Discovery': 0.416, 'Organic Materials': 0.601, 'Overall Average': 0.625},
-        {'Fundamental Science': 0.737, 'Alloy Materials': 0.506, 'Biomedicine': 0.754, 'Drug Discovery': 0.362, 'Organic Materials': 0.612, 'Overall Average': 0.594},
-        {'Fundamental Science': 0.725, 'Alloy Materials': 0.620, 'Biomedicine': 0.712, 'Drug Discovery': 0.381, 'Organic Materials': 0.633, 'Overall Average': 0.614},
-        {'Fundamental Science': 0.609, 'Alloy Materials': 0.299, 'Biomedicine': 0.763, 'Drug Discovery': 0.218, 'Organic Materials': 0.295, 'Overall Average': 0.437},
-        {'Fundamental Science': 0.709, 'Alloy Materials': 0.440, 'Biomedicine': 0.740, 'Drug Discovery': 0.410, 'Organic Materials': 0.537, 'Overall Average': 0.559},
-        {'Fundamental Science': 0.735, 'Alloy Materials': 0.656, 'Biomedicine': 0.757, 'Drug Discovery': 0.356, 'Organic Materials': 0.608, 'Overall Average': 0.582},
-        {'Fundamental Science': 0.773, 'Alloy Materials': 0.567, 'Biomedicine': 0.793, 'Drug Discovery': 0.306, 'Organic Materials': 0.644, 'Overall Average': 0.616},
-        {'Fundamental Science': 0.603, 'Alloy Materials': 0.338, 'Biomedicine': 0.705, 'Drug Discovery': 0.314, 'Organic Materials': 0.468, 'Overall Average': 0.486}
+    const models = ['Uni-SMART', 'O1-preview', 'O1-mini', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Llama3.1', 'Qwen2.5', 'Mixtral'];
+    const averageData = [
+        {'Biology': 0.768, 'Chemistry': 0.686, 'Material': 0.639, 'Medicine': 0.641, 'Average': 0.684},
+        {'Biology': 0.780, 'Chemistry': 0.716, 'Material': 0.616, 'Medicine': 0.514, 'Average': 0.656},
+        {'Biology': 0.732, 'Chemistry': 0.671, 'Material': 0.639, 'Medicine': 0.408, 'Average': 0.613},
+        {'Biology': 0.689, 'Chemistry': 0.680, 'Material': 0.620, 'Medicine': 0.458, 'Average': 0.612},
+        {'Biology': 0.686, 'Chemistry': 0.608, 'Material': 0.566, 'Medicine': 0.420, 'Average': 0.570},
+        {'Biology': 0.554, 'Chemistry': 0.373, 'Material': 0.370, 'Medicine': 0.318, 'Average': 0.404},
+        {'Biology': 0.672, 'Chemistry': 0.580, 'Material': 0.599, 'Medicine': 0.341, 'Average': 0.548},
+        {'Biology': 0.654, 'Chemistry': 0.377, 'Material': 0.432, 'Medicine': 0.388, 'Average': 0.463},
+        {'Biology': 0.676, 'Chemistry': 0.490, 'Material': 0.520, 'Medicine': 0.386, 'Average': 0.518},
+        {'Biology': 0.702, 'Chemistry': 0.621, 'Material': 0.608, 'Medicine': 0.454, 'Average': 0.596},
+        {'Biology': 0.694, 'Chemistry': 0.625, 'Material': 0.592, 'Medicine': 0.374, 'Average': 0.571},
+        {'Biology': 0.672, 'Chemistry': 0.637, 'Material': 0.594, 'Medicine': 0.378, 'Average': 0.570},
+        {'Biology': 0.631, 'Chemistry': 0.444, 'Material': 0.459, 'Medicine': 0.352, 'Average': 0.471}
     ];
-    const fundamentalScienceData = [
-        {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
-        {'MMLU (science)': 0.839, 'CMMLU (science)': 0.785, 'Xiezhi-Ch (science)': 0.736, 'Xiezhi-En (science)': 0.701},
-        {'MMLU (science)': 0.783, 'CMMLU (science)': 0.644, 'Xiezhi-Ch (science)': 0.724, 'Xiezhi-En (science)': 0.683},
-        {'MMLU (science)': 0.629, 'CMMLU (science)': 0.438, 'Xiezhi-Ch (science)': 0.696, 'Xiezhi-En (science)': 0.644},
-        {'MMLU (science)': 0.774, 'CMMLU (science)': 0.723, 'Xiezhi-Ch (science)': 0.734, 'Xiezhi-En (science)': 0.677},
-        {'MMLU (science)': 0.795, 'CMMLU (science)': 0.643, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.673},
-        {'MMLU (science)': 0.720, 'CMMLU (science)': 0.841, 'Xiezhi-Ch (science)': 0.720, 'Xiezhi-En (science)': 0.667},
-        {'MMLU (science)': 0.799, 'CMMLU (science)': 0.731, 'Xiezhi-Ch (science)': 0.716, 'Xiezhi-En (science)': 0.652},
-        {'MMLU (science)': 0.598, 'CMMLU (science)': 0.566, 'Xiezhi-Ch (science)': 0.636, 'Xiezhi-En (science)': 0.634},
-        {'MMLU (science)': 0.766, 'CMMLU (science)': 0.651, 'Xiezhi-Ch (science)': 0.731, 'Xiezhi-En (science)': 0.687},
-        {'MMLU (science)': 0.737, 'CMMLU (science)': 0.769, 'Xiezhi-Ch (science)': 0.748, 'Xiezhi-En (science)': 0.685},
-        {'MMLU (science)': 0.782, 'CMMLU (science)': 0.870, 'Xiezhi-Ch (science)': 0.746, 'Xiezhi-En (science)': 0.692},
-        {'MMLU (science)': 0.647, 'CMMLU (science)': 0.448, 'Xiezhi-Ch (science)': 0.683, 'Xiezhi-En (science)': 0.634}
+    const biologyData = [
+        {'Mmlu Pro Biology': 0.876, 'Biology Chart QA': 0.693, 'Chemical Entities Recognition': 0.865, 'Compound Disease Recognition': 0.744, 'Disease Entities Recognition': 0.820, 'Gene Disease Function': 0.611},
+        {'Mmlu Pro Biology': 0.901, 'Biology Chart QA': 0.653, 'Chemical Entities Recognition': 0.862, 'Compound Disease Recognition': 0.745, 'Disease Entities Recognition': 0.831, 'Gene Disease Function': 0.687},
+        {'Mmlu Pro Biology': 0.856, 'Biology Chart QA': 0.588, 'Chemical Entities Recognition': 0.860, 'Compound Disease Recognition': 0.725, 'Disease Entities Recognition': 0.817, 'Gene Disease Function': 0.548},
+        {'Mmlu Pro Biology': 0.874, 'Biology Chart QA': 0.558, 'Chemical Entities Recognition': 0.795, 'Compound Disease Recognition': 0.733, 'Disease Entities Recognition': 0.763, 'Gene Disease Function': 0.410},
+        {'Mmlu Pro Biology': 0.845, 'Biology Chart QA': 0.442, 'Chemical Entities Recognition': 0.817, 'Compound Disease Recognition': 0.753, 'Disease Entities Recognition': 0.670, 'Gene Disease Function': 0.587},
+        {'Mmlu Pro Biology': 0.650, 'Biology Chart QA': 0.312, 'Chemical Entities Recognition': 0.649, 'Compound Disease Recognition': 0.636, 'Disease Entities Recognition': 0.688, 'Gene Disease Function': 0.391},
+        {'Mmlu Pro Biology': 0.755, 'Biology Chart QA': 0.518, 'Chemical Entities Recognition': 0.821, 'Compound Disease Recognition': 0.745, 'Disease Entities Recognition': 0.654, 'Gene Disease Function': 0.538},
+        {'Mmlu Pro Biology': 0.781, 'Biology Chart QA': 0.402, 'Chemical Entities Recognition': 0.815, 'Compound Disease Recognition': 0.737, 'Disease Entities Recognition': 0.684, 'Gene Disease Function': 0.506},
+        {'Mmlu Pro Biology': 0.770, 'Biology Chart QA': 0.523, 'Chemical Entities Recognition': 0.749, 'Compound Disease Recognition': 0.733, 'Disease Entities Recognition': 0.742, 'Gene Disease Function': 0.539},
+        {'Mmlu Pro Biology': 0.842, 'Biology Chart QA': 0.548, 'Chemical Entities Recognition': 0.745, 'Compound Disease Recognition': 0.751, 'Disease Entities Recognition': 0.767, 'Gene Disease Function': 0.558},
+        {'Mmlu Pro Biology': 0.815, 'Biology Chart QA': 0.477, 'Chemical Entities Recognition': 0.836, 'Compound Disease Recognition': 0.768, 'Disease Entities Recognition': 0.793, 'Gene Disease Function': 0.474},
+        {'Mmlu Pro Biology': 0.840, 'Biology Chart QA': 0.487, 'Chemical Entities Recognition': 0.764, 'Compound Disease Recognition': 0.712, 'Disease Entities Recognition': 0.793, 'Gene Disease Function': 0.438},
+        {'Mmlu Pro Biology': 0.743, 'Biology Chart QA': 0.422, 'Chemical Entities Recognition': 0.707, 'Compound Disease Recognition': 0.757, 'Disease Entities Recognition': 0.737, 'Gene Disease Function': 0.418}
     ];
-    const alloyMaterialsData = [
-        {'Alloy Chart QA': 0.933, 'Composition Extraction': 0.511, 'Temperature Extraction': 0.879, 'Sample Differentiation': 0.603, 'Treatment Sequence': 0.745},
-        {'Alloy Chart QA': 0.533, 'Composition Extraction': 0.484, 'Temperature Extraction': 0.884, 'Sample Differentiation': 0.511, 'Treatment Sequence': 0.745},
-        {'Alloy Chart QA': 0.600, 'Composition Extraction': 0.458, 'Temperature Extraction': 0.855, 'Sample Differentiation': 0.591, 'Treatment Sequence': 0.725},
-        {'Alloy Chart QA': 0.333, 'Composition Extraction': 0.112, 'Temperature Extraction': 0.729, 'Sample Differentiation': 0.169, 'Treatment Sequence': 0.461},
-        {'Alloy Chart QA': 0.333, 'Composition Extraction': 0.127, 'Temperature Extraction': 0.889, 'Sample Differentiation': 0.679, 'Treatment Sequence': 0.755},
-        {'Alloy Chart QA': 0.400, 'Composition Extraction': 0.495, 'Temperature Extraction': 0.865, 'Sample Differentiation': 0.586, 'Treatment Sequence': 0.745},
-        {'Alloy Chart QA': 0.467, 'Composition Extraction': 0.304, 'Temperature Extraction': 0.700, 'Sample Differentiation': 0.316, 'Treatment Sequence': 0.745},
-        {'Alloy Chart QA': 0.667, 'Composition Extraction': 0.239, 'Temperature Extraction': 0.841, 'Sample Differentiation': 0.658, 'Treatment Sequence': 0.696},
-        {'Alloy Chart QA': 0.200, 'Composition Extraction': 0.169, 'Temperature Extraction': 0.343, 'Sample Differentiation': 0.253, 'Treatment Sequence': 0.529},
-        {'Alloy Chart QA': 0.467, 'Composition Extraction': 0.212, 'Temperature Extraction': 0.604, 'Sample Differentiation': 0.376, 'Treatment Sequence': 0.539},
-        {'Alloy Chart QA': 0.333, 'Composition Extraction': 0.389, 'Temperature Extraction': 0.754, 'Sample Differentiation': 0.616, 'Treatment Sequence': 0.686},
-        {'Alloy Chart QA': 0.400, 'Composition Extraction': 0.423, 'Temperature Extraction': 0.797, 'Sample Differentiation': 0.557, 'Treatment Sequence': 0.657},
-        {'Alloy Chart QA': 0.200, 'Composition Extraction': 0.128, 'Temperature Extraction': 0.546, 'Sample Differentiation': 0.228, 'Treatment Sequence': 0.588}
+    const chemistryData = [
+        {'Mmlu Pro Chemistry': 0.865, 'Electrolyte Table QA': 0.920, 'Oled Property Extraction': 0.263, 'Polymer Chart QA': 1.000, 'Polymer Composition QA': 0.976, 'Polymer Property Extraction': 0.555, 'Solubility Extraction': 0.434, 'Reactant QA': 0.569, 'Reaction Mechanism QA': 0.591},
+        {'Mmlu Pro Chemistry': 0.868, 'Electrolyte Table QA': 0.925, 'Oled Property Extraction': 0.394, 'Polymer Chart QA': 1.000, 'Polymer Composition QA': 0.986, 'Polymer Property Extraction': 0.606, 'Solubility Extraction': 0.427, 'Reactant QA': 0.559, 'Reaction Mechanism QA': 0.682},
+        {'Mmlu Pro Chemistry': 0.788, 'Electrolyte Table QA': 0.839, 'Oled Property Extraction': 0.338, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.986, 'Polymer Property Extraction': 0.537, 'Solubility Extraction': 0.442, 'Reactant QA': 0.559, 'Reaction Mechanism QA': 0.682},
+        {'Mmlu Pro Chemistry': 0.745, 'Electrolyte Table QA': 0.855, 'Oled Property Extraction': 0.438, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.938, 'Polymer Property Extraction': 0.759, 'Solubility Extraction': 0.444, 'Reactant QA': 0.487, 'Reaction Mechanism QA': 0.591},
+        {'Mmlu Pro Chemistry': 0.621, 'Electrolyte Table QA': 0.810, 'Oled Property Extraction': 0.455, 'Polymer Chart QA': 0.733, 'Polymer Composition QA': 0.947, 'Polymer Property Extraction': 0.758, 'Solubility Extraction': 0.431, 'Reactant QA': 0.441, 'Reaction Mechanism QA': 0.273},
+        {'Mmlu Pro Chemistry': 0.303, 'Electrolyte Table QA': 0.305, 'Oled Property Extraction': 0.280, 'Polymer Chart QA': 0.667, 'Polymer Composition QA': 0.330, 'Polymer Property Extraction': 0.562, 'Solubility Extraction': 0.408, 'Reactant QA': 0.272, 'Reaction Mechanism QA': 0.227},
+        {'Mmlu Pro Chemistry': 0.428, 'Electrolyte Table QA': 0.765, 'Oled Property Extraction': 0.160, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.971, 'Polymer Property Extraction': 0.736, 'Solubility Extraction': 0.445, 'Reactant QA': 0.415, 'Reaction Mechanism QA': 0.500},
+        {'Mmlu Pro Chemistry': 0.496, 'Electrolyte Table QA': 0.435, 'Oled Property Extraction': 0.055, 'Polymer Chart QA': 0.467, 'Polymer Composition QA': 0.555, 'Polymer Property Extraction': 0.634, 'Solubility Extraction': 0.375, 'Reactant QA': 0.241, 'Reaction Mechanism QA': 0.136},
+        {'Mmlu Pro Chemistry': 0.446, 'Electrolyte Table QA': 0.745, 'Oled Property Extraction': 0.413, 'Polymer Chart QA': 0.400, 'Polymer Composition QA': 0.804, 'Polymer Property Extraction': 0.508, 'Solubility Extraction': 0.409, 'Reactant QA': 0.272, 'Reaction Mechanism QA': 0.409},
+        {'Mmlu Pro Chemistry': 0.683, 'Electrolyte Table QA': 0.765, 'Oled Property Extraction': 0.419, 'Polymer Chart QA': 0.733, 'Polymer Composition QA': 0.947, 'Polymer Property Extraction': 0.580, 'Solubility Extraction': 0.440, 'Reactant QA': 0.344, 'Reaction Mechanism QA': 0.682},
+        {'Mmlu Pro Chemistry': 0.676, 'Electrolyte Table QA': 0.755, 'Oled Property Extraction': 0.563, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.852, 'Polymer Property Extraction': 0.690, 'Solubility Extraction': 0.447, 'Reactant QA': 0.385, 'Reaction Mechanism QA': 0.455},
+        {'Mmlu Pro Chemistry': 0.723, 'Electrolyte Table QA': 0.785, 'Oled Property Extraction': 0.499, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.914, 'Polymer Property Extraction': 0.692, 'Solubility Extraction': 0.437, 'Reactant QA': 0.379, 'Reaction Mechanism QA': 0.500},
+        {'Mmlu Pro Chemistry': 0.501, 'Electrolyte Table QA': 0.455, 'Oled Property Extraction': 0.355, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.493, 'Polymer Property Extraction': 0.573, 'Solubility Extraction': 0.314, 'Reactant QA': 0.231, 'Reaction Mechanism QA': 0.273}
     ];
-    const biomedicineData = [
-        {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.916, 'Disease Entities Recognition': 0.849, 'Compound Disease Recognition': 0.750, 'Gene Disease Function': 0.945, 'Gene Disease Regulation': 0.939},
-        {'Biology Chart QA': 0.580, 'Chemical Entities Recognition': 0.454, 'Disease Entities Recognition': 0.279, 'Compound Disease Recognition': 0.755, 'Gene Disease Function': 0.931, 'Gene Disease Regulation': 0.949},
-        {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.665, 'Disease Entities Recognition': 0.765, 'Compound Disease Recognition': 0.786, 'Gene Disease Function': 0.974, 'Gene Disease Regulation': 0.914},
-        {'Biology Chart QA': 0.390, 'Chemical Entities Recognition': 0.540, 'Disease Entities Recognition': 0.153, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.864, 'Gene Disease Regulation': 0.832},
-        {'Biology Chart QA': 0.545, 'Chemical Entities Recognition': 0.201, 'Disease Entities Recognition': 0.000, 'Compound Disease Recognition': 0.770, 'Gene Disease Function': 0.771, 'Gene Disease Regulation': 0.944},
-        {'Biology Chart QA': 0.505, 'Chemical Entities Recognition': 0.844, 'Disease Entities Recognition': 0.653, 'Compound Disease Recognition': 0.788, 'Gene Disease Function': 0.944, 'Gene Disease Regulation': 0.939},
-        {'Biology Chart QA': 0.480, 'Chemical Entities Recognition': 0.911, 'Disease Entities Recognition': 0.675, 'Compound Disease Recognition': 0.771, 'Gene Disease Function': 0.779, 'Gene Disease Regulation': 0.910},
-        {'Biology Chart QA': 0.616, 'Chemical Entities Recognition': 0.678, 'Disease Entities Recognition': 0.437, 'Compound Disease Recognition': 0.733, 'Gene Disease Function': 0.954, 'Gene Disease Regulation': 0.856},
-        {'Biology Chart QA': 0.475, 'Chemical Entities Recognition': 0.884, 'Disease Entities Recognition': 0.703, 'Compound Disease Recognition': 0.705, 'Gene Disease Function': 0.850, 'Gene Disease Regulation': 0.960},
-        {'Biology Chart QA': 0.520, 'Chemical Entities Recognition': 0.400, 'Disease Entities Recognition': 0.526, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.996, 'Gene Disease Regulation': 0.971},
-        {'Biology Chart QA': 0.545, 'Chemical Entities Recognition': 0.536, 'Disease Entities Recognition': 0.331, 'Compound Disease Recognition': 0.757, 'Gene Disease Function': 0.819, 'Gene Disease Regulation': 0.952},
-        {'Biology Chart QA': 0.515, 'Chemical Entities Recognition': 0.832, 'Disease Entities Recognition': 0.722, 'Compound Disease Recognition': 0.794, 'Gene Disease Function': 0.930, 'Gene Disease Regulation': 0.963},
-        {'Biology Chart QA': 0.535, 'Chemical Entities Recognition': 0.850, 'Disease Entities Recognition': 0.258, 'Compound Disease Recognition': 0.764, 'Gene Disease Function': 0.884, 'Gene Disease Regulation': 0.936}
-    ]
-    const drugDiscoveryData = [
-        {'Affinity Extraction': 0.200, 'Drug Chart QA': 0.600, 'Tag to Molecule': 0.188, 'Markush to Molecule': 0.686, 'Molecule in Document': 0.720, 'Reaction QA': 0.768, 'Research Targets Identification': 0.823},
-        {'Affinity Extraction': 0.072, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.040, 'Markush to Molecule': 0.634, 'Molecule in Document': 0.580, 'Reaction QA': 0.705, 'Research Targets Identification': 0.721},
-        {'Affinity Extraction': 0.042, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.022, 'Markush to Molecule': 0.632, 'Molecule in Document': 0.700, 'Reaction QA': 0.674, 'Research Targets Identification': 0.791},
-        {'Affinity Extraction': 0.025, 'Drug Chart QA': 0.067, 'Tag to Molecule': 0.000, 'Markush to Molecule': 0.429, 'Molecule in Document': 0.500, 'Reaction QA': 0.442, 'Research Targets Identification': 0.526},
-        {'Affinity Extraction': 0.040, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.016, 'Markush to Molecule': 0.462, 'Molecule in Document': 0.460, 'Reaction QA': 0.253, 'Research Targets Identification': 0.607},
-        {'Affinity Extraction': 0.097, 'Drug Chart QA': 0.200, 'Tag to Molecule': 0.035, 'Markush to Molecule': 0.644, 'Molecule in Document': 0.480, 'Reaction QA': 0.663, 'Research Targets Identification': 0.794},
-        {'Affinity Extraction': 0.050, 'Drug Chart QA': 0.533, 'Tag to Molecule': 0.094, 'Markush to Molecule': 0.217, 'Molecule in Document': 0.560, 'Reaction QA': 0.442, 'Research Targets Identification': 0.622},
-        {'Affinity Extraction': 0.054, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.139, 'Markush to Molecule': 0.218, 'Molecule in Document': 0.520, 'Reaction QA': 0.442, 'Research Targets Identification': 0.825},
-        {'Affinity Extraction': 0.059, 'Drug Chart QA': 0.200, 'Tag to Molecule': 0.000, 'Markush to Molecule': 0.000, 'Molecule in Document': 0.360, 'Reaction QA': 0.242, 'Research Targets Identification': 0.665},
-        {'Affinity Extraction': 0.064, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.034, 'Markush to Molecule': 0.478, 'Molecule in Document': 0.680, 'Reaction QA': 0.611, 'Research Targets Identification': 0.600},
-        {'Affinity Extraction': 0.017, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.014, 'Markush to Molecule': 0.543, 'Molecule in Document': 0.460, 'Reaction QA': 0.368, 'Research Targets Identification': 0.687},
-        {'Affinity Extraction': 0.075, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.000, 'Markush to Molecule': 0.358, 'Molecule in Document': 0.460, 'Reaction QA': 0.442, 'Research Targets Identification': 0.410},
-        {'Affinity Extraction': 0.043, 'Drug Chart QA': 0.533, 'Tag to Molecule': 0.031, 'Markush to Molecule': 0.332, 'Molecule in Document': 0.460, 'Reaction QA': 0.316, 'Research Targets Identification': 0.485}
+    const materialData = [
+        {'Material QA': 0.806, 'Alloy Chart QA': 0.733, 'Composition Extraction': 0.472, 'Temperature QA': 0.836, 'Sample Differentiation': 0.363, 'Treatment Sequence': 0.624},
+        {'Material QA': 0.821, 'Alloy Chart QA': 0.533, 'Composition Extraction': 0.488, 'Temperature QA': 0.836, 'Sample Differentiation': 0.392, 'Treatment Sequence': 0.624},
+        {'Material QA': 0.730, 'Alloy Chart QA': 0.600, 'Composition Extraction': 0.347, 'Temperature QA': 0.865, 'Sample Differentiation': 0.646, 'Treatment Sequence': 0.644},
+        {'Material QA': 0.768, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.462, 'Temperature QA': 0.807, 'Sample Differentiation': 0.624, 'Treatment Sequence': 0.594},
+        {'Material QA': 0.722, 'Alloy Chart QA': 0.200, 'Composition Extraction': 0.467, 'Temperature QA': 0.734, 'Sample Differentiation': 0.595, 'Treatment Sequence': 0.678},
+        {'Material QA': 0.521, 'Alloy Chart QA': 0.400, 'Composition Extraction': 0.189, 'Temperature QA': 0.295, 'Sample Differentiation': 0.329, 'Treatment Sequence': 0.485},
+        {'Material QA': 0.620, 'Alloy Chart QA': 0.333, 'Composition Extraction': 0.423, 'Temperature QA': 0.845, 'Sample Differentiation': 0.688, 'Treatment Sequence': 0.683},
+        {'Material QA': 0.620, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.427, 'Temperature QA': 0.353, 'Sample Differentiation': 0.245, 'Treatment Sequence': 0.480},
+        {'Material QA': 0.669, 'Alloy Chart QA': 0.533, 'Composition Extraction': 0.398, 'Temperature QA': 0.488, 'Sample Differentiation': 0.376, 'Treatment Sequence': 0.658},
+        {'Material QA': 0.722, 'Alloy Chart QA': 0.600, 'Composition Extraction': 0.389, 'Temperature QA': 0.715, 'Sample Differentiation': 0.586, 'Treatment Sequence': 0.634},
+        {'Material QA': 0.738, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.457, 'Temperature QA': 0.652, 'Sample Differentiation': 0.624, 'Treatment Sequence': 0.614},
+        {'Material QA': 0.719, 'Alloy Chart QA': 0.533, 'Composition Extraction': 0.430, 'Temperature QA': 0.647, 'Sample Differentiation': 0.578, 'Treatment Sequence': 0.658},
+        {'Material QA': 0.631, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.177, 'Temperature QA': 0.382, 'Sample Differentiation': 0.426, 'Treatment Sequence': 0.673}
     ];
-    const organicMaterialsData = [
-        {'Electrolyte Table QA': 0.850, 'OLED Property Extraction': 0.490, 'Polymer Chart QA': 0.933, 'Polymer Composition QA': 0.954, 'Polymer Property Extraction': 0.705, 'Solubility Extraction': 0.468, 'Reaction Mechanism QA': 0.682},
-        {'Electrolyte Table QA': 0.940, 'OLED Property Extraction': 0.336, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.945, 'Polymer Property Extraction': 0.692, 'Solubility Extraction': 0.479, 'Reaction Mechanism QA': 0.545},
-        {'Electrolyte Table QA': 0.790, 'OLED Property Extraction': 0.406, 'Polymer Chart QA': 0.667, 'Polymer Composition QA': 0.945, 'Polymer Property Extraction': 0.681, 'Solubility Extraction': 0.440, 'Reaction Mechanism QA': 0.636},
-        {'Electrolyte Table QA': 0.370, 'OLED Property Extraction': 0.201, 'Polymer Chart QA': 0.400, 'Polymer Composition QA': 0.853, 'Polymer Property Extraction': 0.329, 'Solubility Extraction': 0.410, 'Reaction Mechanism QA': 0.455},
-        {'Electrolyte Table QA': 0.670, 'OLED Property Extraction': 0.037, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.844, 'Polymer Property Extraction': 0.705, 'Solubility Extraction': 0.363, 'Reaction Mechanism QA': 0.545},
-        {'Electrolyte Table QA': 0.870, 'OLED Property Extraction': 0.477, 'Polymer Chart QA': 0.467, 'Polymer Composition QA': 0.881, 'Polymer Property Extraction': 0.629, 'Solubility Extraction': 0.426, 'Reaction Mechanism QA': 0.455},
-        {'Electrolyte Table QA': 0.710, 'OLED Property Extraction': 0.259, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.927, 'Polymer Property Extraction': 0.514, 'Solubility Extraction': 0.371, 'Reaction Mechanism QA': 0.636},
-        {'Electrolyte Table QA': 0.880, 'OLED Property Extraction': 0.093, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.927, 'Polymer Property Extraction': 0.606, 'Solubility Extraction': 0.397, 'Reaction Mechanism QA': 0.727},
-        {'Electrolyte Table QA': 0.410, 'OLED Property Extraction': 0.180, 'Polymer Chart QA': 0.000, 'Polymer Composition QA': 0.450, 'Polymer Property Extraction': 0.406, 'Solubility Extraction': 0.347, 'Reaction Mechanism QA': 0.273},
-        {'Electrolyte Table QA': 0.460, 'OLED Property Extraction': 0.263, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.734, 'Polymer Property Extraction': 0.536, 'Solubility Extraction': 0.399, 'Reaction Mechanism QA': 0.500},
-        {'Electrolyte Table QA': 0.720, 'OLED Property Extraction': 0.292, 'Polymer Chart QA': 0.733, 'Polymer Composition QA': 0.881, 'Polymer Property Extraction': 0.652, 'Solubility Extraction': 0.432, 'Reaction Mechanism QA': 0.545},
-        {'Electrolyte Table QA': 0.620, 'OLED Property Extraction': 0.392, 'Polymer Chart QA': 0.933, 'Polymer Composition QA': 0.936, 'Polymer Property Extraction': 0.636, 'Solubility Extraction': 0.400, 'Reaction Mechanism QA': 0.591},
-        {'Electrolyte Table QA': 0.450, 'OLED Property Extraction': 0.234, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.679, 'Polymer Property Extraction': 0.171, 'Solubility Extraction': 0.351, 'Reaction Mechanism QA': 0.591}
+    const medicineData = [
+        {'Mmlu Pro Health': 0.787, 'Affinity Extraction': 0.398, 'Drug Chart QA': 0.733, 'Tag to Molecule': 0.405, 'Markush to Molecule': 0.603, 'Mol In Document': 0.920},
+        {'Mmlu Pro Health': 0.784, 'Affinity Extraction': 0.068, 'Drug Chart QA': 0.600, 'Tag to Molecule': 0.127, 'Markush to Molecule': 0.662, 'Mol In Document': 0.840},
+        {'Mmlu Pro Health': 0.702, 'Affinity Extraction': 0.045, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.102, 'Markush to Molecule': 0.533, 'Mol In Document': 0.600},
+        {'Mmlu Pro Health': 0.763, 'Affinity Extraction': 0.101, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.229, 'Markush to Molecule': 0.585, 'Mol In Document': 0.600},
+        {'Mmlu Pro Health': 0.715, 'Affinity Extraction': 0.076, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.092, 'Markush to Molecule': 0.684, 'Mol In Document': 0.620},
+        {'Mmlu Pro Health': 0.531, 'Affinity Extraction': 0.055, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.023, 'Markush to Molecule': 0.523, 'Mol In Document': 0.440},
+        {'Mmlu Pro Health': 0.644, 'Affinity Extraction': 0.063, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.133, 'Markush to Molecule': 0.391, 'Mol In Document': 0.480},
+        {'Mmlu Pro Health': 0.614, 'Affinity Extraction': 0.045, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.061, 'Markush to Molecule': 0.503, 'Mol In Document': 0.640},
+        {'Mmlu Pro Health': 0.605, 'Affinity Extraction': 0.081, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.105, 'Markush to Molecule': 0.565, 'Mol In Document': 0.560},
+        {'Mmlu Pro Health': 0.663, 'Affinity Extraction': 0.052, 'Drug Chart QA': 0.533, 'Tag to Molecule': 0.211, 'Markush to Molecule': 0.683, 'Mol In Document': 0.580},
+        {'Mmlu Pro Health': 0.710, 'Affinity Extraction': 0.047, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.143, 'Markush to Molecule': 0.425, 'Mol In Document': 0.520},
+        {'Mmlu Pro Health': 0.685, 'Affinity Extraction': 0.071, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.136, 'Markush to Molecule': 0.443, 'Mol In Document': 0.600},
+        {'Mmlu Pro Health': 0.603, 'Affinity Extraction': 0.049, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.021, 'Markush to Molecule': 0.576, 'Mol In Document': 0.460}
     ];
 
     // Generate table content
-    generateTable('overallAverage', models, overallAverageData, ['Fundamental Science', 'Alloy Materials', 'Biomedicine', 'Drug Discovery', 'Organic Materials', 'Overall Average']);
-    generateTable('fundamentalScience', models, fundamentalScienceData, ['MMLU (science)', 'CMMLU (science)', 'Xiezhi-Ch (science)', 'Xiezhi-En (science)']);
-    generateTable('alloyMaterials', models, alloyMaterialsData, ['Alloy Chart QA', 'Composition Extraction', 'Temperature Extraction', 'Sample Differentiation', 'Treatment Sequence']);
-    generateTable('biomedicine', models, biomedicineData, ['Biology Chart QA', 'Chemical Entities Recognition', 'Disease Entities Recognition', 'Compound Disease Recognition', 'Gene Disease Function', 'Gene Disease Regulation']);
-    generateTable('drugDiscovery', models, drugDiscoveryData, ['Affinity Extraction', 'Drug Chart QA', 'Tag to Molecule', 'Markush to Molecule', 'Molecule in Document', 'Reaction QA', 'Research Targets Identification']);
-    generateTable('organicMaterials', models, organicMaterialsData, ['Electrolyte Table QA', 'OLED Property Extraction', 'Polymer Chart QA', 'Polymer Composition QA', 'Polymer Property Extraction', 'Solubility Extraction', 'Reaction Mechanism QA']);
+    generateTable('average', models, averageData, ['Biology', 'Chemistry', 'Material', 'Medicine', 'Average']);
+    generateTable('biology', models, biologyData, ['Mmlu Pro Biology', 'Biology Chart QA', 'Chemical Entities Recognition', 'Compound Disease Recognition', 'Disease Entities Recognition', 'Gene Disease Function']);
+    generateTable('chemistry', models, chemistryData, ['Mmlu Pro Chemistry', 'Electrolyte Table QA', 'Oled Property Extraction', 'Polymer Chart QA', 'Polymer Composition QA', 'Polymer Property Extraction', 'Solubility Extraction', 'Reactant QA', 'Reaction Mechanism QA']);
+    generateTable('material', models, materialData, ['Material QA', 'Alloy Chart QA', 'Composition Extraction', 'Temperature QA', 'Sample Differentiation', 'Treatment Sequence']);
+    generateTable('medicine', models, medicineData, ['Mmlu Pro Health', 'Affinity Extraction', 'Drug Chart QA', 'Tag to Molecule', 'Markush to Molecule', 'Molecule in Document']);
 
     document.body.addEventListener('click', function(event) {
         if (event.target.tagName === 'TH') {

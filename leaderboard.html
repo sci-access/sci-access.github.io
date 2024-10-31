@@ -14,6 +14,7 @@ js:
         <li>
             <strong>Timestamp 🔥</strong>
             <ul>
+            <li> <strong>[2024/10]</strong> We update new version of SciAssess. </li>
             <li> <strong>[2024/08]</strong> Add Ernie4 (Baidu Inc.) on SciAssess Benchmark. </li>
             <li> <strong>[2024/06]</strong> Introduce more annotated data to update Sciassess Benchmark and verify it on various models. </li>
             <li> <strong>[2024/05]</strong> Added Deepseek+PyPDF, Command-R-Plus+PyPDF on SciAssess Benchmark. </li>
@@ -30,118 +31,102 @@ js:
 <div class="dropdown">
     <label for="tableSelect">Select Table:</label>
     <select id="tableSelect" onchange="showTable(this.value)">
-        <option value="overallAverage">Overall Average</option>
-        <option value="fundamentalScience">Fundamental Science</option>
-        <option value="alloyMaterials">Alloy Materials</option>
-        <option value="biomedicine">Biomedicine</option>
-        <option value="drugDiscovery">Drug Discovery</option>
-        <option value="organicMaterials">Organic Materials</option>
+        <option value="average">Average</option>
+        <option value="biology">Biology</option>
+        <option value="chemistry">Chemistry</option>
+        <option value="material">Material</option>
+        <option value="medicine">Medicine</option>
     </select>
 </div>
 
-<div id="overallAverage" class="table-container">
-    <div class="tab" id="overallAverageTab"></div>
+<div id="average" class="table-container">
+    <div class="tab" id="averageTab"></div>
     <table>
         <thead>
             <tr>
                 <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="Fundamental_Science" onclick="sortTable(1)">Fundamental Science<span class="arrow"></span></th>
-                <th class="Alloy_Materials" onclick="sortTable(2)">Alloy Materials<span class="arrow"></span></th>
-                <th class="Biomedicine" onclick="sortTable(3)">Biomedicine<span class="arrow"></span></th>
-                <th class="Drug_Discovery" onclick="sortTable(4)">Drug_Discovery<span class="arrow"></span></th>
-                <th class="Organic_Materials" onclick="sortTable(5)">Organic Materials<span class="arrow"></span></th>
-                <th class="Overall_Average" onclick="sortTable(6)">Overall Average<span class="arrow"></span></th>
+                <th class="Biology" onclick="sortTable(1)">Biology<span class="arrow"></span></th>
+                <th class="Chemistry" onclick="sortTable(2)">Chemistry<span class="arrow"></span></th>
+                <th class="Material" onclick="sortTable(3)">Material<span class="arrow"></span></th>
+                <th class="Medicine" onclick="sortTable(4)">Medicine<span class="arrow"></span></th>
+                <th class="Average" onclick="sortTable(5)">Average<span class="arrow"></span></th>
             </tr>
         </thead>
-        <tbody id="overallAverageBody"></tbody>
+        <tbody id="averageBody"></tbody>
     </table>
 </div>
 
-<div id="fundamentalScience" class="table-container">
-    <div class="tab" id="fundamentalScienceTab"></div>
+<div id="biology" class="table-container">
+    <div class="tab" id="biologyTab"></div>
     <table>
         <thead>
             <tr>
                 <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="MMLU_(science)" onclick="sortTable(1)">MMLU (science)<span class="arrow"></span></th>
-                <th class="CMMLU_(science)" onclick="sortTable(2)">CMMLU (science)<span class="arrow"></span></th>
-                <th class="Xiezhi-Ch_(science)" onclick="sortTable(3)">Xiezhi-Ch (science)<span class="arrow"></span></th>
-                <th class="Xiezhi-En_(science)" onclick="sortTable(4)">Xiezhi-En (science)<span class="arrow"></span></th>
-            </tr>
-        </thead>
-        <tbody id="fundamentalScienceBody"></tbody>
-    </table>
-</div>
-
-<div id="alloyMaterials" class="table-container">
-    <div class="tab" id="alloyMaterialsTab"></div>
-    <table>
-        <thead>
-            <tr>
-                <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="Alloy_Chart_QA" onclick="sortTable(1)">Alloy Chart QA<span class="arrow"></span></th>
-                <th class="Composition_Extraction" onclick="sortTable(2)">Composition Extraction<span class="arrow"></span></th>
-                <th class="Temperature_Extraction" onclick="sortTable(3)">Temperature Extraction<span class="arrow"></span></th>
-                <th class="Sample_Differentiation" onclick="sortTable(4)">Sample Differentiation<span class="arrow"></span></th>
-                <th class="Treatment_Sequence" onclick="sortTable(5)">Treatment Sequence<span class="arrow"></span></th>
-            </tr>
-        </thead>
-        <tbody id="alloyMaterialsBody"></tbody>
-    </table>
-</div>
-
-<div id="biomedicine" class="table-container">
-    <div class="tab" id="biomedicineTab"></div>
-    <table>
-        <thead>
-            <tr>
-                <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="Biology_Chart_QA" onclick="sortTable(1)">Biology Chart QA<span class="arrow"></span></th>
-                <th class="Chemical_Entities_Recognition" onclick="sortTable(2)">Chemical Entities Recognition<span class="arrow"></span></th>
-                <th class="Disease_Entities_Recognition" onclick="sortTable(3)">Disease Entities Recognition<span class="arrow"></span></th>
+                <th class="MMLU_Pro_Biology" onclick="sortTable(1)">MMLU Pro Biology<span class="arrow"></span></th>
+                <th class="Biology_Chart_QA" onclick="sortTable(2)">Biology Chart QA<span class="arrow"></span></th>
+                <th class="Chemical_Entities_Recognition" onclick="sortTable(3)">Chemical Entities Recognition<span class="arrow"></span></th>
                 <th class="Compound_Disease_Recognition" onclick="sortTable(4)">Compound Disease Recognition<span class="arrow"></span></th>
-                <th class="Gene_Disease_Function" onclick="sortTable(5)">Gene Disease Function<span class="arrow"></span></th>
-                <th class="Gene_Disease_Regulation" onclick="sortTable(6)">Gene Disease Regulation<span class="arrow"></span></th>
+                <th class="Disease_Entities_Recognition" onclick="sortTable(5)">Disease Entities Recognition<span class="arrow"></span></th>
+                <th class="Gene_Disease_Function" onclick="sortTable(6)">Gene Disease Function<span class="arrow"></span></th>
             </tr>
         </thead>
-        <tbody id="biomedicineBody"></tbody>
+        <tbody id="biologyBody"></tbody>
     </table>
 </div>
 
-<div id="drugDiscovery" class="table-container">
-    <div class="tab" id="drugDiscoveryTab"></div>
+<div id="chemistry" class="table-container">
+    <div class="tab" id="chemistryTab"></div>
     <table>
         <thead>
             <tr>
                 <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="Affinity_Extraction" onclick="sortTable(1)">Affinity Extraction<span class="arrow"></span></th>
-                <th class="Drug_Chart_QA" onclick="sortTable(2)">Drug Chart QA<span class="arrow"></span></th>
-                <th class="Tag_to_Molecule" onclick="sortTable(3)">Tag to Molecule<span class="arrow"></span></th>
-                <th class="Markush_to_Molecule" onclick="sortTable(4)">Markush to Molecule<span class="arrow"></span></th>
-                <th class="Molecule_in_Document" onclick="sortTable(5)">Molecule in Document<span class="arrow"></span></th>
-                <th class="Reaction_QA" onclick="sortTable(6)">Reaction QA<span class="arrow"></span></th>
-                <th class="Research_Targets_Identification" onclick="sortTable(7)">Research Targets Identification<span class="arrow"></span></th>
+                <th class="MMLU_Pro_Chemistry" onclick="sortTable(1)">MMLU Pro Chemistry<span class="arrow"></span></th>
+                <th class="Electrolyte_Table_QA" onclick="sortTable(2)">Electrolyte Table QA<span class="arrow"></span></th>
+                <th class="OLED_Property_Extraction" onclick="sortTable(3)">OLED Property Extraction<span class="arrow"></span></th>
+                <th class="Polymer_Chart_QA" onclick="sortTable(4)">Polymer Chart QA<span class="arrow"></span></th>
+                <th class="Polymer_Composition_QA" onclick="sortTable(5)">Polymer Composition QA<span class="arrow"></span></th>
+                <th class="Polymer_Property_Extraction" onclick="sortTable(6)">Polymer Property Extraction<span class="arrow"></span></th>
+                <th class="Solubility_Extraction" onclick="sortTable(7)">Solubility Extraction<span class="arrow"></span></th>
+                <th class="Reactant_QA" onclick="sortTable(8)">Reactant QA<span class="arrow"></span></th>
+                <th class="Reaction_Mechanism_QA" onclick="sortTable(9)">Reaction Mechanism QA<span class="arrow"></span></th>
             </tr>
         </thead>
-        <tbody id="drugDiscoveryBody"></tbody>
+        <tbody id="chemistryBody"></tbody>
     </table>
 </div>
 
-<div id="organicMaterials" class="table-container">
-    <div class="tab" id="organicMaterialsTab"></div>
+<div id="material" class="table-container">
+    <div class="tab" id="materialTab"></div>
     <table>
         <thead>
             <tr>
                 <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
-                <th class="Electrolyte_Table_QA" onclick="sortTable(1)">Electrolyte Table QA<span class="arrow"></span></th>
-                <th class="OLED_Property_Extraction" onclick="sortTable(2)">OLED Property Extraction<span class="arrow"></span></th>
-                <th class="Polymer_Chart_QA" onclick="sortTable(3)">Polymer Chart QA<span class="arrow"></span></th>
-                <th class="Polymer_Composition_QA" onclick="sortTable(4)">Polymer Composition QA<span class="arrow"></span></th>
-                <th class="Polymer_Property_Extraction" onclick="sortTable(5)">Polymer Property Extraction<span class="arrow"></span></th>
-                <th class="Solubility_Extraction" onclick="sortTable(6)">Solubility Extraction<span class="arrow"></span></th>
-                <th class="Reaction_Mechanism_QA" onclick="sortTable(7)">Reaction Mechanism QA<span class="arrow"></span></th>
+                <th class="Material_QA" onclick="sortTable(1)">Material QA<span class="arrow"></span></th>
+                <th class="Alloy_Chart_QA" onclick="sortTable(2)">Alloy Chart QA<span class="arrow"></span></th>
+                <th class="Composition_Extraction" onclick="sortTable(3)">Composition Extraction<span class="arrow"></span></th>
+                <th class="Temperature_QA" onclick="sortTable(4)">Temperature QA<span class="arrow"></span></th>
+                <th class="Sample_Differentiation" onclick="sortTable(5)">Sample Differentiation<span class="arrow"></span></th>
+                <th class="Treatment_Sequence" onclick="sortTable(6)">Treatment Sequence<span class="arrow"></span></th>
             </tr>
         </thead>
-        <tbody id="organicMaterialsBody"></tbody>
+        <tbody id="materialBody"></tbody>
+    </table>
+</div>
+
+<div id="medicine" class="table-container">
+    <div class="tab" id="medicineTab"></div>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="restoreOriginalOrder()">Model<span class="arrow"></span></th>
+                <th class="MMLU_Pro_Health" onclick="sortTable(1)">MMLU Pro Health<span class="arrow"></span></th>
+                <th class="Affinity_Extraction" onclick="sortTable(2)">Affinity Extraction<span class="arrow"></span></th>
+                <th class="Drug_Chart_QA" onclick="sortTable(3)">Drug Chart QA<span class="arrow"></span></th>
+                <th class="Tag_to_Molecule" onclick="sortTable(4)">Tag to Molecule<span class="arrow"></span></th>
+                <th class="Markush_to_Molecule" onclick="sortTable(5)">Markush to Molecule<span class="arrow"></span></th>
+                <th class="Molecule_in_Document" onclick="sortTable(6)">Molecule in Document<span class="arrow"></span></th>
+            </tr>
+        </thead>
+        <tbody id="medicineBody"></tbody>
     </table>
 </div>
