@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showTable('average');
 
     // Table data
-    const models = ['Uni-SMART', 'O1-preview', 'O1-mini', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Llama3.1', 'Qwen2.5', 'Mixtral'];
+    const models = ['Uni-SMART', 'O1-preview', 'O1-mini', 'GPT-4o', 'GPT-4', 'GPT-3.5', 'Moonshot', 'Claude3', 'Doubao', 'Gemini', 'Llama3.1', 'Qwen2.5', 'Mixtral', 'Deepseek-v3'];
     const averageData = [
         {'Biology': 0.768, 'Chemistry': 0.686, 'Material': 0.639, 'Medicine': 0.641, 'Average': 0.684},
         {'Biology': 0.780, 'Chemistry': 0.716, 'Material': 0.616, 'Medicine': 0.514, 'Average': 0.656},
@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Biology': 0.702, 'Chemistry': 0.621, 'Material': 0.608, 'Medicine': 0.454, 'Average': 0.596},
         {'Biology': 0.694, 'Chemistry': 0.625, 'Material': 0.592, 'Medicine': 0.374, 'Average': 0.571},
         {'Biology': 0.672, 'Chemistry': 0.637, 'Material': 0.594, 'Medicine': 0.378, 'Average': 0.570},
-        {'Biology': 0.631, 'Chemistry': 0.444, 'Material': 0.459, 'Medicine': 0.352, 'Average': 0.471}
+        {'Biology': 0.631, 'Chemistry': 0.444, 'Material': 0.459, 'Medicine': 0.352, 'Average': 0.471},
+        {'Biology': 0.701, 'Chemistry': 0.701, 'Material': 0.659, 'Medicine': 0.444, 'Average': 0.626}
     ];
     const biologyData = [
         {'MMLU Pro Biology': 0.876, 'Biology Chart QA': 0.693, 'Chemical Entities Recognition': 0.865, 'Compound Disease Recognition': 0.744, 'Disease Entities Recognition': 0.820, 'Gene Disease Function': 0.611},
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {'MMLU Pro Biology': 0.842, 'Biology Chart QA': 0.548, 'Chemical Entities Recognition': 0.745, 'Compound Disease Recognition': 0.751, 'Disease Entities Recognition': 0.767, 'Gene Disease Function': 0.558},
         {'MMLU Pro Biology': 0.815, 'Biology Chart QA': 0.477, 'Chemical Entities Recognition': 0.836, 'Compound Disease Recognition': 0.768, 'Disease Entities Recognition': 0.793, 'Gene Disease Function': 0.474},
         {'MMLU Pro Biology': 0.840, 'Biology Chart QA': 0.487, 'Chemical Entities Recognition': 0.764, 'Compound Disease Recognition': 0.712, 'Disease Entities Recognition': 0.793, 'Gene Disease Function': 0.438},
-        {'MMLU Pro Biology': 0.743, 'Biology Chart QA': 0.422, 'Chemical Entities Recognition': 0.707, 'Compound Disease Recognition': 0.757, 'Disease Entities Recognition': 0.737, 'Gene Disease Function': 0.418}
+        {'MMLU Pro Biology': 0.743, 'Biology Chart QA': 0.422, 'Chemical Entities Recognition': 0.707, 'Compound Disease Recognition': 0.757, 'Disease Entities Recognition': 0.737, 'Gene Disease Function': 0.418},
+        {'MMLU Pro Biology': 0.863, 'Biology Chart QA': 0.558, 'Chemical Entities Recognition': 0.772, 'Compound Disease Recognition': 0.758, 'Disease Entities Recognition': 0.815, 'Gene Disease Function': 0.440}
     ];
     const chemistryData = [
         {'MMLU Pro Chemistry': 0.865, 'Electrolyte Table QA': 0.920, 'OLED Property Extraction': 0.263, 'Polymer Chart QA': 1.000, 'Polymer Composition QA': 0.976, 'Polymer Property Extraction': 0.555, 'Solubility Extraction': 0.434, 'Reactant QA': 0.569, 'Reaction Mechanism QA': 0.591},
@@ -48,7 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {'MMLU Pro Chemistry': 0.683, 'Electrolyte Table QA': 0.765, 'OLED Property Extraction': 0.419, 'Polymer Chart QA': 0.733, 'Polymer Composition QA': 0.947, 'Polymer Property Extraction': 0.580, 'Solubility Extraction': 0.440, 'Reactant QA': 0.344, 'Reaction Mechanism QA': 0.682},
         {'MMLU Pro Chemistry': 0.676, 'Electrolyte Table QA': 0.755, 'OLED Property Extraction': 0.563, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.852, 'Polymer Property Extraction': 0.690, 'Solubility Extraction': 0.447, 'Reactant QA': 0.385, 'Reaction Mechanism QA': 0.455},
         {'MMLU Pro Chemistry': 0.723, 'Electrolyte Table QA': 0.785, 'OLED Property Extraction': 0.499, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.914, 'Polymer Property Extraction': 0.692, 'Solubility Extraction': 0.437, 'Reactant QA': 0.379, 'Reaction Mechanism QA': 0.500},
-        {'MMLU Pro Chemistry': 0.501, 'Electrolyte Table QA': 0.455, 'OLED Property Extraction': 0.355, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.493, 'Polymer Property Extraction': 0.573, 'Solubility Extraction': 0.314, 'Reactant QA': 0.231, 'Reaction Mechanism QA': 0.273}
+        {'MMLU Pro Chemistry': 0.501, 'Electrolyte Table QA': 0.455, 'OLED Property Extraction': 0.355, 'Polymer Chart QA': 0.800, 'Polymer Composition QA': 0.493, 'Polymer Property Extraction': 0.573, 'Solubility Extraction': 0.314, 'Reactant QA': 0.231, 'Reaction Mechanism QA': 0.273},
+        {'MMLU Pro Chemistry': 0.761, 'Electrolyte Table QA': 0.874, 'OLED Property Extraction': 0.657, 'Polymer Chart QA': 0.867, 'Polymer Composition QA': 0.947, 'Polymer Property Extraction': 0.605, 'Solubility Extraction': 0.438, 'Reactant QA': 0.431, 'Reaction Mechanism QA': 0.727}
     ];
     const materialData = [
         {'Material QA': 0.806, 'Alloy Chart QA': 0.733, 'Composition Extraction': 0.472, 'Temperature QA': 0.836, 'Sample Differentiation': 0.363, 'Treatment Sequence': 0.624},
@@ -63,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {'Material QA': 0.722, 'Alloy Chart QA': 0.600, 'Composition Extraction': 0.389, 'Temperature QA': 0.715, 'Sample Differentiation': 0.586, 'Treatment Sequence': 0.634},
         {'Material QA': 0.738, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.457, 'Temperature QA': 0.652, 'Sample Differentiation': 0.624, 'Treatment Sequence': 0.614},
         {'Material QA': 0.719, 'Alloy Chart QA': 0.533, 'Composition Extraction': 0.430, 'Temperature QA': 0.647, 'Sample Differentiation': 0.578, 'Treatment Sequence': 0.658},
-        {'Material QA': 0.631, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.177, 'Temperature QA': 0.382, 'Sample Differentiation': 0.426, 'Treatment Sequence': 0.673}
+        {'Material QA': 0.631, 'Alloy Chart QA': 0.467, 'Composition Extraction': 0.177, 'Temperature QA': 0.382, 'Sample Differentiation': 0.426, 'Treatment Sequence': 0.673},
+        {'Material QA': 0.791, 'Alloy Chart QA': 0.533, 'Composition Extraction': 0.465, 'Temperature QA': 0.845, 'Sample Differentiation': 0.646, 'Treatment Sequence': 0.673}
     ];
     const medicineData = [
         {'MMLU Pro Health': 0.787, 'Affinity Extraction': 0.398, 'Drug Chart QA': 0.733, 'Tag to Molecule': 0.405, 'Markush to Molecule': 0.603, 'Mol In Document': 0.920},
@@ -78,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {'MMLU Pro Health': 0.663, 'Affinity Extraction': 0.052, 'Drug Chart QA': 0.533, 'Tag to Molecule': 0.211, 'Markush to Molecule': 0.683, 'Mol In Document': 0.580},
         {'MMLU Pro Health': 0.710, 'Affinity Extraction': 0.047, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.143, 'Markush to Molecule': 0.425, 'Mol In Document': 0.520},
         {'MMLU Pro Health': 0.685, 'Affinity Extraction': 0.071, 'Drug Chart QA': 0.333, 'Tag to Molecule': 0.136, 'Markush to Molecule': 0.443, 'Mol In Document': 0.600},
-        {'MMLU Pro Health': 0.603, 'Affinity Extraction': 0.049, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.021, 'Markush to Molecule': 0.576, 'Mol In Document': 0.460}
+        {'MMLU Pro Health': 0.603, 'Affinity Extraction': 0.049, 'Drug Chart QA': 0.400, 'Tag to Molecule': 0.021, 'Markush to Molecule': 0.576, 'Mol In Document': 0.460},
+        {'MMLU Pro Health': 0.740, 'Affinity Extraction': 0.093, 'Drug Chart QA': 0.467, 'Tag to Molecule': 0.197, 'Markush to Molecule': 0.604, 'Mol In Document': 0.560}
     ];
 
     // Generate table content
